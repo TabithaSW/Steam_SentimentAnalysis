@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Steam Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: 'Garamond', serif;
+            background-color: #f4f4f4;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+        }
+        .header {
+            background-color: #360000;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            border-bottom: 3px solid black;
+        }
+        .container {
+            width: 80%;
+            margin-left: 10px; /* Shift to the left */
+            overflow: hidden;
+        }
+        .main-content {
+            background: white;
+            padding: 20px;
+            margin-top: 20px;
+            border: 2px solid #360000;
+        }
+        h2 {
+            color: #360000;
+            font-weight: bold;
+        }
+        .about {
+            background-color: #ddd;
+            padding: 15px;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        .profile-section {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-direction: row;
+        }
+        .profile-image {
+            width: 150px; /* Smaller size */
+            height: 150px;
+            margin-right: 20px;
+            border: 2px solid #360000;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to my Steam Sentiment Analysis Project!</h1>
+    </div>
+    <div class="container">
+        <div class="profile-section">
+            <img src="{{ url_for('static', filename='me.jpg') }}" alt="Your Image" class="profile-image">
+            <div>
+                <h2>About Me:</h2>
+                <p>     Hello, I am Tabitha Weinbrenner! I'm a programmer analyst with a bachelors in Data Science and a sincere love for coding! I enjoy working on a variety of projects ranging from analysis, to applications, websites, and video game development. I currently work as an analyst and frequently develop statistical reports for the public using a variety of languages and toolsets. This project is an application that combines my passion for games with my programming skills, it was a blast to work on! I hope it provides some cool insight for the Steam community, thanks everyone for taking a look!</p>
+            </div>
+        </div>
+        <div class="main-content">
+            <h2>Project Details:</h2>
+            <p>     While Steam currently implements its own sentiment analysis to gauge user opinions, my aim is to construct a more intricate model that delves deeper into the nuances of user feedback. By leveraging advanced data science techniques and a comprehensive understanding of natural language processing, the goal is to create a model that not only parallels but potentially surpasses the accuracy of existing systems. This endeavor is rooted in the belief that there's always room for improvement and innovation, especially in the dynamic and ever-evolving realm of sentiment analysis. Plus, we REALLY need to know what people think about Spore in 2024.</p>
+            <!-- Place for Sentiment Analysis Model Output -->
+            <!-- <div id="sentiment-analysis-output">Model output will be displayed here</div> -->
+        </div>
+        <!-- Additional sections can be added here -->
+    </div>
+</body>
+</html>
+
