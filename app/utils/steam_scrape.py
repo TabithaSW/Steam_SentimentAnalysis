@@ -1,3 +1,9 @@
+
+# This code utility was derived from Andrew Mullers medium article:
+# https://andrew-muller.medium.com/scraping-steam-user-reviews-9a43f9e38c92
+# I DID NOT WRITE THIS CODE PORTION. I took his open source code for scraping reviews. All other scripts are written by me.
+# Steam API does not have review connections yet, so I web scraped and pre-processed.
+
 import requests
 import bs4
 from bs4 import BeautifulSoup

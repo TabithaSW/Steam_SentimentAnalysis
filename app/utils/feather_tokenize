@@ -1,0 +1,40 @@
+import nltk
+nltk.download('omw-1.4')
+
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import RegexpTokenizer
+
+from string import punctuation
+from re import sub
+import pandas as pd
+
+# Load the feather file into a DataFrame
+df = pd.read_feather("steam_reviews.feather")
+
+# Define the text preprocessing functions
+def remove_markdown(x):
+    return sub(r'\[.*?\]', '', x)
+
+def remove_punctuation(x):
+    punctuation_list = list(punctuation) + ['`', '’', '…', '\n']
+    return x.translate(str.maketrans('', '', ''.join(punctuation_list)))
+
+def tokenize(x):
+    tokenizer = RegexpTokenizer(r'[a-zA-Z0-9]+')
+    return tokenizer.tokenize(x.lower())
+
+def lemmatize(x):
+    lemmatizer = WordNetLemmatizer()
+    return list(map(lemmatizer.lemmatize, x))
+
+# Iterate through all columns in the DataFrame
+for column in df.columns:
+    if df[column].dtype == 'O':  # Check if the column contains text data
+        df[f'{column}_pre'] = df[column].apply(remove_markdown)
+        df[f'{column}_pre'] = df[f'{column}_pre'].apply(remove_punctuation)
+        df[f'{column}_pre'] = df[f'{column}_pre'].apply(tokenize)
+        df[f'{column}_pre'] = df[f'{column}_pre'].apply(lemmatize)
+        df[f'{column}_join'] = df[f'{column}_pre'].apply(lambda x: ' '.join(x))
+
+# Save the result in a CSV file
+df.to_csv('preprocessed_reviews.csv', index=False)
