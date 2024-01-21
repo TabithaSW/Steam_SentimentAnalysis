@@ -1,7 +1,7 @@
 
-# This code utility was derived from Andrew Mullers medium article:
+# This code is a modified version from Andrew Mullers medium article:
 # https://andrew-muller.medium.com/scraping-steam-user-reviews-9a43f9e38c92
-# I modified his original version from the open source code he posted for scraping reviews. 
+# I modified his original version so that this scrapes for game name and app id, formats the reviews per game, process as csv. 
 # I needed to collect the game names along with the reviews in a tuple format and collect as CSV rather than feather.
 # Steam API does not have reviews available for data collection yet, so I web scraped and pre-processed.
 
@@ -13,21 +13,20 @@ from bs4 import BeautifulSoup
 import pandas as pd # A data manipulation and analysis library.
 
 
-def get_reviews(appid_game_tuple, params={'json': 1}):
+def get_reviews(appid, params={'json': 1}):
     """
-    Defines a function get_reviews which takes two parameters: 
-    appid_game_tuple (a tuple containing the ID and name of a Steam app/game) 
-    and params (optional, defaulting to {'json': 1} to specify the format of the response).
-    
+    Fetches reviews for a given Steam app/game using its appid.
     """
-    appid = appid_game_tuple[0]  # Extracts the app ID from the tuple
-    url = 'https://store.steampowered.com/appreviews/' + appid  # Constructs the complete URL for Steam app reviews.
+    url = f'https://store.steampowered.com/appreviews/{appid}'
+    try:
+        response = requests.get(url, params=params, headers={'User-Agent': 'Mozilla/5.0'})
+        response.raise_for_status()  # Raises an HTTPError if the HTTP request returned an unsuccessful status code
+        return response.json()
+    # added fail check
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching reviews for appid {appid}: {e}")
+        return None
 
-    response = requests.get(url=url, params=params, headers={'User-Agent': 'Mozilla/5.0'}) 
-    # Sends a GET request using the requests library.
-    # The user agent in the headers mimics a browser request (some websites block requests that don't come from browsers).
-
-    return response.json()  # Returns the JSON response containing the reviews for the specified Steam app.
 
 
 def get_n_appids(n=100, filter_by='topsellers'):
@@ -64,40 +63,60 @@ def get_n_appids(n=100, filter_by='topsellers'):
     return list(zip(appids, game_names))[:n]
 
 # collected_ids = get_n_appids(n=100,filter_by='topsellers')
-# print(collected_ids)
-
-def get_n_reviews(appid, n=100):
+# print("APP IDS", collected_ids) TEST WORKED HERE
+def get_n_reviews(appid_game_tuple, n=50):
+    """
+    Collects up to 'n' reviews for a given Steam game.
+    """
+    appid, game_name = appid_game_tuple
     reviews = []
     cursor = '*'
     params = {
-            'json' : 1,
-            'filter' : 'all',
-            'language' : 'english',
-            'day_range' : 9223372036854775807,
-            'review_type' : 'all',
-            'purchase_type' : 'all'
-            }
+        'json': 1,
+        'filter': 'all',
+        'language': 'english',
+        'day_range': 9223372036854775807,
+        'review_type': 'all',
+        'purchase_type': 'all'
+    }
 
     while n > 0:
-        params['cursor'] = cursor.encode()
+        params['cursor'] = cursor
         params['num_per_page'] = min(100, n)
-        n -= 100
-
         response = get_reviews(appid, params)
-        cursor = response['cursor']
-        reviews += response['reviews']
+        if not response:
+            break  # If there's an error or no response, break the loop
 
-        if len(response['reviews']) < 100: break
+        cursor = response.get('cursor', '*')
+        batch_reviews = response.get('reviews', [])
+        for review in batch_reviews:
+            review['game_id'] = appid
+            review['game_name'] = game_name
+        reviews += batch_reviews
+        n -= len(batch_reviews)
+        if len(batch_reviews) < params['num_per_page']:
+            break
 
     return reviews
 
-
-# reviews_res = get_n_reviews(collected_ids)
-
-
+# Collect reviews for each game
 reviews = []
-appids = get_n_appids(100)
-for appid in appids:
-    reviews += get_n_reviews(appid, 100)
-df = pd.DataFrame(reviews)[['review', 'voted_up']]
-df.to_feather('steam_reviews.feather')
+appids_and_names = get_n_appids(100)  # Adjust the number to how many games you want to process
+for appid_game_tuple in appids_and_names:
+    reviews += get_n_reviews(appid_game_tuple, 30)  # Collect 50 reviews for each game
+
+# Extract relevant data from each review, we want to csv format organized for tokenizing:
+extracted_reviews = []
+for review in reviews:
+    review_data = {
+        'game_id': review['game_id'],
+        'game_name': review['game_name'],
+        'review_text': review['review']
+    }
+    extracted_reviews.append(review_data)
+
+# Create a DataFrame with specific columns and save to CSV (not feather file this time just for ease of access)
+df = pd.DataFrame(extracted_reviews)
+df.to_csv('steam_reviews.csv', index=False)
+
+# i am going to start with 100 games and 30 reviews for each. we can increase as model evaluation continues.

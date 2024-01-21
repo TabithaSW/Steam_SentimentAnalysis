@@ -15,4 +15,8 @@ The Steam Sentiment Analysis project is a comprehensive application designed to 
 **Toolset:**
 - Flask
 - Python 
-- 
+- NLTK
+- Pandas
+- Transformers
+- Feather/CSV Files
+- Git and GitHub
