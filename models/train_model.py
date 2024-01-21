@@ -13,7 +13,7 @@ def format_sentence(sent):
 def main():
     # Load the preprocessed training data
     # Make sure to replace the path with the correct one
-    df = pd.read_csv('../data/train_reviews.csv')
+    df = pd.read_csv('C:/Users/Tabitha/Desktop/Py_Projects/Steam_SentimentAnalysis/data/train_reviews.csv')
 
     # Assuming the DataFrame has a 'processed_review' column and a 'label' column
     # 'label' column should have values like 'pos' for positive and 'neg' for negative
