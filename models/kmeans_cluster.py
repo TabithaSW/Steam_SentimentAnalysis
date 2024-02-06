@@ -3,8 +3,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 import numpy as np
-
-def cluster_reviews_for_game(df, game_id, game_name, vectorizer, num_clusters=5, output_file=None):
+def cluster_reviews_for_game(df, game_id, game_name, vectorizer, num_clusters, output_file=None):
     """
     Clusters reviews for a specific game and writes results to a file.
     """
@@ -37,12 +36,15 @@ def cluster_reviews_for_game(df, game_id, game_name, vectorizer, num_clusters=5,
     if output_file is not None:
         for i in range(num_clusters):
             output_file.write(f"Cluster {i} reviews sample:\n")
-            sample_reviews = game_reviews[game_reviews['cluster'] == i]['processed_review'].sample(n=3, random_state=42).values
+            cluster_size = game_reviews[game_reviews['cluster'] == i].shape[0]
+            n_samples = min(3, cluster_size)  # Take 3 samples or less depending on the cluster size
+            sample_reviews = game_reviews[game_reviews['cluster'] == i]['processed_review'].sample(n=n_samples, random_state=42).values
             for review in sample_reviews:
                 output_file.write(f"- {review[:200]}\n")  # Write the first 200 characters of each review
             output_file.write("\n")
     
     return game_reviews
+
 
 def main():
     # Load the training data
@@ -51,6 +53,8 @@ def main():
 
     # Initialize a TF-IDF Vectorizer
     vectorizer = TfidfVectorizer(max_features=1000)
+     # When you multiply TF by IDF, you get a value that increases with the number of times a word appears in a document but decreases if it's common across all documents. 
+    # This helps to highlight words that are unique and important in individual reviews.
     
     num_clusters = 5  # Example: 5 clusters per game
     

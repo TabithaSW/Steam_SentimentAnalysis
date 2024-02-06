@@ -17,8 +17,8 @@ import re
 import os
 
 # Download necessary NLTK resources if not already present.
-nltk.download('punkt')  # Tokenizers for splitting text into tokens (words).
-nltk.download('stopwords')  # Common words (like 'the', 'is', 'in', etc.) that are usually removed in NLP tasks.
+#nltk.download('punkt')  # Tokenizers for splitting text into tokens (words).
+#nltk.download('stopwords')  # Common words (like 'the', 'is', 'in', etc.) that are usually removed in NLP tasks.
 
 from nltk.stem import WordNetLemmatizer
 

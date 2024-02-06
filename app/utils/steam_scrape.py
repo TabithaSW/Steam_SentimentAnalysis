@@ -101,7 +101,7 @@ def get_n_reviews(appid_game_tuple, n=50):
 
 # Collect reviews for each game
 reviews = []
-appids_and_names = get_n_appids(500)  # Adjust the number to how many games you want to process
+appids_and_names = get_n_appids(50)  # Adjust the number to how many games you want to process
 for appid_game_tuple in appids_and_names:
     reviews += get_n_reviews(appid_game_tuple, 50)  # Collect 50 reviews for each game
 
@@ -119,4 +119,4 @@ for review in reviews:
 df = pd.DataFrame(extracted_reviews)
 df.to_csv('steam_reviews.csv', index=False)
 
-# i am going to start with 500  games and 50 reviews for each. we can increase as model evaluation continues.
+# i am going to start with 50  games and 50 reviews for each. we can increase as model evaluation continues.
