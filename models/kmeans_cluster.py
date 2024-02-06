@@ -1,9 +1,13 @@
+
 # Importing necessary libraries
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from nltk.sentiment import SentimentIntensityAnalyzer
 import numpy as np
+import nltk
+nltk.download('vader_lexicon')
+from nltk.sentiment import SentimentIntensityAnalyzer
 
 def cluster_reviews_for_game(df, game_id, game_name, vectorizer, num_clusters):
     """
@@ -63,7 +67,7 @@ def main():
     final_clustered_df = pd.concat(all_clustered_reviews, ignore_index=True)
     
     # Analyze sentiment and save results
-    analyze_and_save_results(final_clustered_df, 'analysis/clustered_reviews_analysis.csv')
+    analyze_and_save_results(final_clustered_df, 'data/clustered_reviews_analysis.csv')
     
     print("Clustering and sentiment analysis completed. Results saved to 'analysis/clustered_reviews_analysis.csv'")
 
