@@ -13,7 +13,7 @@ The Steam Sentiment Analysis project is a comprehensive application designed to 
 - Scalability: Ensure the application can handle a large number of reviews and can be scaled up to include more games and different types of analysis.
 
 
-**Models: Unsupervised **
+**Models: Unsupervised**
 
 1. K-Means Clustering
 - Description: A method that groups reviews into a specified number of clusters based on the similarity of their content.
