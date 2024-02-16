@@ -1,3 +1,9 @@
+
+"""
+
+__init__.py: Initializes application as a Python package, allowing for its components to be easily imported elsewhere.
+"""
+
 from flask import Flask  # Import the Flask class from the 'flask' package
 
 app = Flask(__name__)  # Create an instance of the Flask class. '__name__' is a Python special variable which gives Python the name of the module in which it is used.

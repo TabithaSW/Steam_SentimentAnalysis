@@ -1,3 +1,11 @@
+
+"""
+
+routes.py: Defines the routes or endpoints of your web application, specifying how your app responds to client requests.
+
+"""
+
+
 from app import app  # Import the 'app' instance created in '__init__.py'
 
 from flask import render_template  # Import 'render_template' function for rendering HTML templates
