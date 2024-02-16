@@ -67,7 +67,7 @@ def main():
     final_clustered_df = pd.concat(all_clustered_reviews, ignore_index=True)
     
     # Analyze sentiment and save results
-    analyze_and_save_results(final_clustered_df, 'data/clustered_reviews_analysis.csv')
+    analyze_and_save_results(final_clustered_df, 'data/KMEANS_cluster_res.csv')
     
     print("Clustering and sentiment analysis completed. Results saved to 'analysis/clustered_reviews_analysis.csv'")
 

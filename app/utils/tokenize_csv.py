@@ -18,43 +18,41 @@ import os
 
 # Download necessary NLTK resources if not already present.
 #nltk.download('punkt')  # Tokenizers for splitting text into tokens (words).
-#nltk.download('stopwords')  # Common words (like 'the', 'is', 'in', etc.) that are usually removed in NLP tasks.
+#nltk.download('stopwords')  # Common words (like 'the', 'is', 'in', etc.) that are usually removed in NLP tasks.\
+#nltk.download('wordnet')  # WordNet Lemmatizer resource.
+
 
 from nltk.stem import WordNetLemmatizer
 
 def preprocess_text(text):
     lemmatizer = WordNetLemmatizer()
-
     text = text.lower()
-    text = re.sub(r'\W+', ' ', text)
+    text = re.sub(r'\W+', ' ', text)  # Remove non-word characters and extra spaces.
     tokens = word_tokenize(text)
-
     stop_words = set(stopwords.words('english'))
     filtered_tokens = [lemmatizer.lemmatize(word) for word in tokens if word not in stop_words]
-
     return ' '.join(filtered_tokens)
-
 
 def main():
     # Read the CSV file from the 'data' directory.
     df = pd.read_csv('C:/Users/Tabitha/Desktop/Py_Projects/Steam_SentimentAnalysis/data/steam_reviews.csv')
-
+    
     # Preprocess and tokenize the 'review_text' column of the DataFrame.
     df['processed_review'] = df['review_text'].apply(preprocess_text)
-
+    
+    # Save the entire processed dataset.
+    df.to_csv('C:/Users/Tabitha/Desktop/Py_Projects/Steam_SentimentAnalysis/data/processed_reviews.csv', index=False)
+    
     # Split the dataset into train (80%) and test (20%) sets.
     train, test = train_test_split(df, test_size=0.2, random_state=42)
-
+    
     # Save the processed training data to a CSV file.
-    train.to_csv('train_reviews.csv', index=False)
-
+    train.to_csv('C:/Users/Tabitha/Desktop/Py_Projects/Steam_SentimentAnalysis/data/train_reviews.csv', index=False)
+    
     # Save the processed testing data to a CSV file.
-    test.to_csv('test_reviews.csv', index=False)
-
-    # Print a preview of the processed data.
+    test.to_csv('C:/Users/Tabitha/Desktop/Py_Projects/Steam_SentimentAnalysis/data/test_reviews.csv', index=False)
+    
     print("Data preprocessing and splitting completed.")
-    print("Preview of processed data:")
-    print(df.head())
 
 if __name__ == "__main__":
     main()
