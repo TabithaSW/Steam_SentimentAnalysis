@@ -29,19 +29,27 @@ def cluster_reviews_for_game(df, game_id, game_name, vectorizer, num_clusters):
 
 def analyze_and_save_results(clustered_df, output_filepath):
     """
-    Performs sentiment analysis on clustered reviews, assigns labels to individual reviews based on sentiment scores,
-    and saves results to a CSV file.
+    Performs sentiment analysis on clustered reviews, calculates the average sentiment per cluster,
+    assigns sentiment labels based on the cluster average, and saves results to a CSV file.
     """
     # Initialize VADER sentiment analyzer
     sia = SentimentIntensityAnalyzer()
 
-    # Apply sentiment analysis to each review and assign sentiment labels
-    clustered_df['sentiment_score'] = clustered_df['processed_review'].apply(lambda x: sia.polarity_scores(x)['compound'])
-    clustered_df['sentiment_label'] = clustered_df['sentiment_score'].apply(lambda score: 'very_positive' if score >= 0.5 else
-                                                                               'positive' if score >= 0.2 else
-                                                                               'neutral' if score >= -0.2 else
-                                                                               'negative' if score >= -0.5 else
-                                                                               'very_negative')
+    # Apply sentiment analysis to each review
+    clustered_df['sentiment_score'] = clustered_df['processed_review'].apply(
+        lambda x: sia.polarity_scores(x)['compound'])
+
+    # Calculate the average sentiment score for each cluster
+    cluster_sentiment = clustered_df.groupby('cluster')['sentiment_score'].mean().to_dict()
+
+    # Assign a sentiment label based on the average score of each cluster
+    clustered_df['cluster_sentiment'] = clustered_df['cluster'].map(cluster_sentiment)
+    clustered_df['cluster_label'] = clustered_df['cluster_sentiment'].apply(
+        lambda score: 'very_positive' if score >= 0.5 else
+                      'positive' if score >= 0.2 else
+                      'neutral' if score >= -0.2 else
+                      'negative' if score >= -0.5 else
+                      'very_negative')
 
     # Define sentiment descriptions
     sentiment_labels = {
@@ -52,8 +60,8 @@ def analyze_and_save_results(clustered_df, output_filepath):
         'very_positive': 'Highly Positive Sentiments'
     }
 
-    # Assign sentiment descriptions based on labels
-    clustered_df['sentiment_description'] = clustered_df['sentiment_label'].map(sentiment_labels)
+    # Assign sentiment descriptions based on cluster labels
+    clustered_df['cluster_description'] = clustered_df['cluster_label'].map(sentiment_labels)
 
     # Save to CSV
     clustered_df.to_csv(output_filepath, index=False)
@@ -64,7 +72,7 @@ def main():
     df['processed_review'] = df['processed_review'].fillna('')
 
     # Initialize a TF-IDF Vectorizer
-    vectorizer = TfidfVectorizer(max_features=20)
+    vectorizer = TfidfVectorizer(max_features=30,ngram_range=(1, 3))
     num_clusters = 4 # Example: 5 clusters per game
     
     all_clustered_reviews = []
