@@ -79,7 +79,8 @@ all_stopwords = set(stopwords.words('english')).union(additional_stopwords)
 def preprocess_text(text):
     lemmatizer = WordNetLemmatizer()
     text = text.lower()
-    text = re.sub(r'\W+', ' ', text)
+    text = re.sub(r'\W+', ' ', text) # eplace non-word characters with spaces. 
+    # This effectively removes numbers and symbols from the reviews, aligning with your goal to focus on textual content
     tokens = word_tokenize(text)
     # Keep words if they are not in all_stopwords or if they are in sentiment_words
     filtered_tokens = [lemmatizer.lemmatize(word) for word in tokens if word not in all_stopwords or word in sentiment_words]
