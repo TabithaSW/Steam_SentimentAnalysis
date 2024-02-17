@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
-from wordcloud import WordCloud
 
 # Load your dataset
 df = pd.read_csv('data/KMEANS_cluster_res.csv')
@@ -30,18 +29,12 @@ for label in axes[0, 1].get_yticklabels():
     label.set_size(8)
     label.set_style('italic')
     label.set_color('gray')
-# Word Cloud for Cluster 0
-cluster_reviews = ' '.join(df[df['cluster'] == 0]['processed_review'].astype(str))  # Ensure all entries are strings
-wordcloud = WordCloud(background_color='black', width=800, height=400, colormap="Reds").generate(cluster_reviews)
-axes[1, 0].imshow(wordcloud, interpolation='bilinear')
-axes[1, 0].axis('off')  # Hide axis
-axes[1, 0].set_title('Word Cloud for Cluster 0')
 
 # Comparison of Sentiment Scores Between Clusters using a violin plot
-sns.violinplot(x='cluster', y='sentiment_score', data=df, ax=axes[1, 1], palette=red_black_palette)
-axes[1, 1].set_title('Comparison of Sentiment Scores Between Clusters')
-axes[1, 1].set_xlabel('Cluster')
-axes[1, 1].set_ylabel('Sentiment Score')
+sns.violinplot(x='cluster', y='sentiment_score', data=df, ax=axes[1, 0], palette="RdGy")
+axes[1, 0].set_title('Comparison of Sentiment Scores Between Clusters')
+axes[1, 0].set_xlabel('Cluster')
+axes[1, 0].set_ylabel('Sentiment Score')
 
 # Adjust layout to not overlap
 plt.tight_layout()

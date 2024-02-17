@@ -60,6 +60,12 @@ sentiment_words = {
     "content", "joyful", "gloomy", "bright", "dark", "vivid", "blurry", "clear", "fuzzy",
     "sharp", "colorful", "drab", "shiny", "gloomy", "luminous", "radiant", "dismal", 
     "gleaming", "dazzling", "sleek", "nifty", "elegant", "graceful", "clumsy", "awkward",
+    "player", "need", "stop", "thing", "setting", "game", "playing", "hour", "year", "month", "overall",
+    "sometimes", "thing", "get", "experience", "feel", "time", "dev", "get", "got", "money", "almost", "job",
+    "td tr", "tldr", "etc", "feature", "right", "little", "match", "main", "item", "getting", "account", "reason",
+    "everyone", "everything", "person", "place", "work", "server", "full", "b", "ever", "nan", "current", "sure",
+    "step", "content", "story", "enough", "review", "two", "one","td","team","devs","u","list","mod","second","seen","said",
+    "added","mean","felt","make","looking"
     # Add additional sentiment words here
 }
 # Combine the default NLTK stopwords with your additional stopwords
