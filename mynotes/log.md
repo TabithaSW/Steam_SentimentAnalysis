@@ -1,6 +1,6 @@
 
 **1/01 - 2/15**
-- Made the steam scrape script & the tokenzing script (utils) to pre-process, lemmatize and pull out stop words and pick which words will help determine sentiment. Made an overall processed cvs and text/train. Fed it to the kmeans model and made visuals, realized clusters are having mixed identies when they should be easily identified from each other. Making analysis web based using flask framework, tested html homepage from flask run.py. 
+- Made the steam scrape script & the tokenzing script (utils) to pre-process, lemmatize and pull out stop words and pick which words will help determine sentiment. Made an overall processed cvs and test/train. Fed it to the kmeans model and made visuals, labelled clusters to find primary identies. Making analysis web based using flask framework, tested html homepage from flask run.py. 
 
 
 **2/16:**

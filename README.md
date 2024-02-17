@@ -3,6 +3,10 @@
 The Steam Sentiment Analysis project is a tool designed to analyze user reviews on Steam, the popular gaming platform. Unlike Steam's existing algorithm, which simply categorizes reviews as positive or negative based on overall ratings, this project delves deeper. It examines individual reviews to determine the sentiment expressed by players toward each game.
 The goal of this project is to provide a more nuanced understanding of player sentiment, going beyond the simplistic positive/negative classification used by Steam. By analyzing the content of each review, it offers insights into what players truly think about a game. This approach allows for a more comprehensive assessment of user sentiment, enhancing the accuracy of evaluations compared to Steam's current algorithm.
 
+Here's an example visual from Kmeans analysis!
+![Figure 1](Figure_1.png)
+
+
 **Toolset:**
 - Flask
 - Python 
@@ -40,8 +44,7 @@ To visually represent the findings, I will create word clouds that highlight the
 - Description: A method that groups reviews into a specified number of clusters based on the similarity of their content. Clustering all reviews for each game into a few clusters (e.g., positive, negative, neutral), the algorithm likely aimed to capture the overall sentiment expressed by players toward each game.
 - Application to Steam Reviews: K-Means can categorize reviews into distinct groups based on their text. Each cluster might represent reviews focusing on similar aspects of games, like graphics, gameplay, or customer service. However, it won't explicitly label these groups as positive or negative.
 - The kmeans script is creating clusters for every game in the CSV, not for every review (overall clusters) It then performs clustering on the reviews for each game separately, so each cluster contains reviews that are related to a specific game. This approach allows for analyzing and understanding sentiment patterns within the reviews of individual games, rather than across all reviews indiscriminately.
-- Basically: Each game will have its own set of clusters, based on the reviews specific to that game. This approach allows for a more focused analysis tailored to each individual game rather than analyzing the entire dataset as a whole.
-- 
+
 **IN PROGRESS:**
   
 ***Hierarchical Clustering***
@@ -52,5 +55,5 @@ To visually represent the findings, I will create word clouds that highlight the
 - Description: An advanced technique that discovers latent topics within the text data. Each review can contribute to multiple topics to varying degrees.
 - Application to Steam Reviews: LDA can identify underlying themes or topics across your reviews. For instance, it might reveal common subjects like game difficulty, story depth, or technical issues. This method helps in understanding the predominant topics of discussion in the reviews, although it doesn’t classify sentiment directly.
 
-**Flask Web Application**
-To make the insights derived from my analysis accessible and understandable, I am developing a Flask web application. This web app will serve HTML pages that display the results of the sentiment analysis and clustering in an interactive and user-friendly manner. By presenting the data through a web interface, I aim to provide both gamers and game developers with valuable insights into the gaming community's feedback, potentially guiding future game development and enhancing the gaming experience.
+***Flask Web Application***
+- To make the insights derived from my analysis accessible and understandable, I am developing a Flask web application. This web app will serve HTML pages that display the results of the sentiment analysis and clustering in an interactive and user-friendly manner. By presenting the data through a web interface, I aim to provide both gamers and game developers with valuable insights into the gaming community's feedback, potentially guiding future game development and enhancing the gaming experience.
