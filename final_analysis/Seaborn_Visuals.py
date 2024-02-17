@@ -45,4 +45,5 @@ axes[1, 0].set_ylabel('Game')
 
 # Adjust layout to not overlap
 plt.tight_layout()
+plt.savefig('seaborn_plots.jpg', format='jpg')
 plt.show()

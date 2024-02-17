@@ -87,20 +87,20 @@ def preprocess_text(text):
 
 def main():
     # Load the steam reviews dataset
-    df = pd.read_csv('C:/Users/Tabitha/Desktop/Py_Projects/Steam_SentimentAnalysis/data/steam_reviews.csv')
+    df = pd.read_csv('data/steam_reviews.csv')
     
     # Apply the preprocessing function to the review text
     df['processed_review'] = df['review_text'].apply(lambda x: preprocess_text(x))
     
     # Save the entire processed dataset before splitting
-    df.to_csv('C:/Users/Tabitha/Desktop/Py_Projects/Steam_SentimentAnalysis/data/processed_reviews.csv', index=False)
+    df.to_csv('data/processed_reviews.csv', index=False)
     
     # Split the processed dataset into training and testing sets
     train, test = train_test_split(df, test_size=0.2, random_state=42)
     
     # Save the training and testing datasets
-    train.to_csv('C:/Users/Tabitha/Desktop/Py_Projects/Steam_SentimentAnalysis/data/train_reviews.csv', index=False)
-    test.to_csv('C:/Users/Tabitha/Desktop/Py_Projects/Steam_SentimentAnalysis/data/test_reviews.csv', index=False)
+    train.to_csv('data/train_reviews.csv', index=False)
+    test.to_csv('data/test_reviews.csv', index=False)
     
     print("Data preprocessing and splitting completed. Check the specified directories for the processed files.")
 
