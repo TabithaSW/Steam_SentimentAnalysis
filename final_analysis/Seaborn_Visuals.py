@@ -3,7 +3,7 @@ import seaborn as sns
 import pandas as pd
 
 # Load your dataset
-#df = pd.read_csv('data/KMEANS_cluster_res.csv')
+# df = pd.read_csv('data/KMEANS_cluster_res.csv')
 df = pd.read_csv('data/KMEANS_cluster_TESTres.csv')
 
 # Setting up the color palette for a red/black gaming theme
@@ -43,7 +43,12 @@ axes[1, 0].set_title('Average Sentiment Score per Game')
 axes[1, 0].set_xlabel('Average Sentiment Score')
 axes[1, 0].set_ylabel('Game')
 
+# Adjusting the y-axis labels for better readability and preventing overlap
+axes[1, 0].set_yticklabels([text[:15] + ('...' if len(text) > 15 else '') for text in avg_sentiment_per_game.index], fontsize=8, style='italic', color='gray')
+axes[1, 0].tick_params(axis='y', rotation=0)
+
 # Adjust layout to not overlap
 plt.tight_layout()
 plt.savefig('seaborn_plots.jpg', format='jpg')
 plt.show()
+
