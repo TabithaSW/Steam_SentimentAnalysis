@@ -14,7 +14,7 @@ In my project, I employ unsupervised learning models to cluster the reviews, aim
 
 **Analysis & Visualization**
 
-Following the clustering, I plan to apply sentiment analysis using the VADER tool to determine the overall sentiment present within each cluster. This step will help quantify the positive, negative, or neutral sentiments in the reviews. To visually represent the findings, I will create word clouds that highlight the most frequent terms within each cluster, offering an immediate sense of the predominant themes. Additionally, I will use bar charts to present a comparative view of sentiments across different clusters, enabling a clear visualization of the data's emotional landscape.
+To visually represent the findings, I will create word clouds that highlight the most frequent terms within each cluster (per game as well), offering an immediate sense of the predominant themes. Additionally, I will use box-whisker and violin charts to present a comparative view of sentiments across different clusters, finding a clear distribution, and enabling a clear visualization of each games emotional landscape. (True Sentiment Per Game)
 
 Visuals so far:
 - Wordclouds for each cluster.
