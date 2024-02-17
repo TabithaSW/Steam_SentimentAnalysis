@@ -1,6 +1,6 @@
 # License
 
-Copyright (c) 2024, [Your Name]
+Copyright (c) 2024, TabithaSW
 
 All Rights Reserved.
 
