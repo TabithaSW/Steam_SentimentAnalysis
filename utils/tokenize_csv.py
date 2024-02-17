@@ -45,7 +45,13 @@ additional_stopwords = {
     "without", "would", "yet", "you", "your", "yours", "yourself","hour","player","buy","review","game","system",
     "feel","edit","instead","really","playing","hour","baby","character","npc","mmo","rpg","making","update","think","take",
     "absolutely","point","feel","etc","hit","fact","date","month","item","area","better","run","crouch","jump","h1","quite","free",
-    "thing","played","thinking","ability","start","end","begin","steam","level","gameplay","change","everything","buy","sell","money","quest"
+    "thing","played","thinking","ability","start","end","begin","steam","level","gameplay","change","everything","buy","sell","money","quest",
+    "player", "need", "stop", "thing", "setting", "game", "playing", "hour", "year", "month", "overall",
+    "sometimes", "thing", "get", "experience", "feel", "time", "dev", "get", "got", "money", "almost", "job",
+    "td tr", "tldr", "etc", "feature", "right", "little", "match", "main", "item", "getting", "account", "reason",
+    "everyone", "everything", "person", "place", "work", "server", "full", "b", "ever", "nan", "current", "sure",
+    "step", "content", "story", "enough", "review", "two", "one","td","team","devs","u","list","mod","second","seen","said",
+    "added","mean","felt","make","looking"
 }
 
 # Expanded list of sentiment words to prioritize in analysis (game related so we can get a good feel of the consensus)
@@ -59,13 +65,7 @@ sentiment_words = {
     "loser", "winner", "bored", "excited", "fear", "joy", "tears", "smiles", "unhappy", 
     "content", "joyful", "gloomy", "bright", "dark", "vivid", "blurry", "clear", "fuzzy",
     "sharp", "colorful", "drab", "shiny", "gloomy", "luminous", "radiant", "dismal", 
-    "gleaming", "dazzling", "sleek", "nifty", "elegant", "graceful", "clumsy", "awkward",
-    "player", "need", "stop", "thing", "setting", "game", "playing", "hour", "year", "month", "overall",
-    "sometimes", "thing", "get", "experience", "feel", "time", "dev", "get", "got", "money", "almost", "job",
-    "td tr", "tldr", "etc", "feature", "right", "little", "match", "main", "item", "getting", "account", "reason",
-    "everyone", "everything", "person", "place", "work", "server", "full", "b", "ever", "nan", "current", "sure",
-    "step", "content", "story", "enough", "review", "two", "one","td","team","devs","u","list","mod","second","seen","said",
-    "added","mean","felt","make","looking"
+    "gleaming", "dazzling", "sleek", "nifty", "elegant", "graceful", "clumsy", "awkward"
     # Add additional sentiment words here
 }
 # Combine the default NLTK stopwords with your additional stopwords
