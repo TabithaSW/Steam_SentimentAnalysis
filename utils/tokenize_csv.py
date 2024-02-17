@@ -65,7 +65,12 @@ sentiment_words = {
     "loser", "winner", "bored", "excited", "fear", "joy", "tears", "smiles", "unhappy", 
     "content", "joyful", "gloomy", "bright", "dark", "vivid", "blurry", "clear", "fuzzy",
     "sharp", "colorful", "drab", "shiny", "gloomy", "luminous", "radiant", "dismal", 
-    "gleaming", "dazzling", "sleek", "nifty", "elegant", "graceful", "clumsy", "awkward"
+    "gleaming", "dazzling", "sleek", "nifty", "elegant", "graceful", "clumsy", "awkward",
+    "silly","sexy","cute","worth","wonderful","awesome","negative","positive","terrible","garbage",
+    "trash","shit","amazing","worthless","waste","expensive","loved","hated","pricey","worthwhile",
+    "beauty","priceless","poetic","exciting","new","fresh","incredible","poor","useless","unacceptable",
+    "satisfactory","nice","cherished","dissapointing","dissapointment"
+
     # Add additional sentiment words here
 }
 # Combine the default NLTK stopwords with your additional stopwords
