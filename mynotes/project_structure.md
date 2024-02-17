@@ -17,44 +17,6 @@ Project Structure Summary:
 
 This structure is designed to facilitate the development, analysis, and deployment of the Steam SentimentAnalysis project.
 
-Steam_SentimentAnalysis/
-│
-├── app/ # Web application directory
-│ ├── static/ # Static files (images, CSS, JS)
-│ │ └── me.jpg # Example static image
-│ ├── templates/ # HTML templates
-│ │ └── home.html # Home page template
-│ ├── utils/ # Utility scripts
-│ │ ├── steam_scrape.py # Steam reviews scraping script
-│ │ └── tokenize_csv.py # Review text tokenization script
-│ ├── routes.py # Defines web app routes
-│ └── init.py # Initializes the app as a package
-│
-├── data/ # Data directory for datasets and analysis results
-│ ├── clustered_reviews_analysis.csv # Clustering and analysis results
-│ ├── steam_reviews.csv # Raw Steam reviews dataset
-│ ├── TEST_KMEANS_RESULTS.txt # KMeans clustering test results
-│ ├── test_reviews.csv # Test review dataset
-│ └── train_reviews.csv # Training review dataset
-│
-├── final_analysis/ # Directory for final analysis outputs
-│ └── kmeans_vader_sentiment # Final sentiment analysis results
-│
-├── models/ # Machine learning models
-│ ├── hier_cluster.py # Hierarchical clustering model script
-│ ├── kmeans_cluster.py # KMeans clustering model script
-│ ├── LDA_Model.py # LDA topic modeling script
-│ └── train_model.py # Script for training models
-│
-├── tests/ # Test scripts for the application
-│ └── test_app.py # Test script for app functionality
-│
-├── .gitignore # Specifies untracked files to ignore
-├── README.md # Project description and documentation
-├── requirements.txt # List of project dependencies
-├── run.py # Script to run the web application
-└── setup.py # Setup script for the project
-
 
 Secondary overview as things adapt:
 # Steam_SentimentAnalysis Project Structure
@@ -90,7 +52,6 @@ This structure outlines the organization of the Steam_SentimentAnalysis project,
 ### Root Directory Files
 - `.gitignore`: Specifies files to be ignored by version control.
 - `README.md`: Project description and documentation.
-- `requirements.txt`: Lists project dependencies.
 - `run.py`: Script to run the web application.
 - `setup.py`: Setup script for the project.
 
