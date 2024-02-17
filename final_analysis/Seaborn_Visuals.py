@@ -3,7 +3,8 @@ import seaborn as sns
 import pandas as pd
 
 # Load your dataset
-df = pd.read_csv('data/KMEANS_cluster_res.csv')
+#df = pd.read_csv('data/KMEANS_cluster_res.csv')
+df = pd.read_csv('data/KMEANS_cluster_TESTres.csv')
 
 # Setting up the color palette for a red/black gaming theme
 sns.set(style="darkgrid", palette="dark")  # Adjust Seaborn style and palette

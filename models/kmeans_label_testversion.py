@@ -64,8 +64,8 @@ def main():
     df['processed_review'] = df['processed_review'].fillna('')
 
     # Initialize a TF-IDF Vectorizer
-    vectorizer = TfidfVectorizer(max_features=500)
-    num_clusters = 7 # Example: 5 clusters per game
+    vectorizer = TfidfVectorizer(max_features=10)
+    num_clusters = 5 # Example: 5 clusters per game
     
     all_clustered_reviews = []
     unique_games = df[['game_id', 'game_name']].drop_duplicates().values
