@@ -3,7 +3,8 @@
 The Steam Sentiment Analysis project is a tool designed to analyze user reviews on Steam, the popular gaming platform. Unlike Steam's existing algorithm, which simply categorizes reviews as positive or negative based on overall ratings, this project delves deeper. It examines individual reviews to determine the sentiment expressed by players toward each game.
 The goal of this project is to provide a more nuanced understanding of player sentiment, going beyond the simplistic positive/negative classification used by Steam. By analyzing the content of each review, it offers insights into what players truly think about a game. This approach allows for a more comprehensive assessment of user sentiment, enhancing the accuracy of evaluations compared to Steam's current algorithm.
 
-***LICENSE INFO***
+***Viewers:***
+
 I kindly request that individuals who clone this repository refrain from reproducing my work verbatim and presenting it as their own project. Please take the time to review the license; this repository is public and intended for educational purposes and career development. If you are interested in contributing to the project, please reach out to me via message.
 
 A few examples of the Kmeans analysis results:
