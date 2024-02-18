@@ -9,26 +9,26 @@ def analyze_clusters_by_game(df, game_name):
     game_df = df[df['game_name'] == game_name]
 
     # Initialize the matplotlib figure
-    f, axes = plt.subplots(3, 1, figsize=(18, 18))
+    f, axes = plt.subplots(3, 1, figsize=(12, 15))  # Adjust figure size
 
     # Setting up the color palette for a red/black gaming theme
     sns.set(style="darkgrid", palette="dark")  # Adjust Seaborn style and palette
 
     # Sentiment Distribution Across Clusters
     sns.boxplot(x='cluster', y='sentiment_score', data=game_df, ax=axes[0], palette="RdGy")
-    axes[0].set_title(f'Sentiment Distribution Across Clusters - {game_name}')
+    axes[0].set_title(f'Sentiment Distribution - {game_name}')  # Shorten title
     axes[0].set_xlabel('Cluster')
     axes[0].set_ylabel('Sentiment Score')
 
     # Comparison of Sentiment Scores Between Clusters using a violin plot
     sns.violinplot(x='cluster', y='sentiment_score', data=game_df, ax=axes[1], palette="RdGy")
-    axes[1].set_title(f'Comparison of Sentiment Scores Between Clusters - {game_name}')
+    axes[1].set_title(f'Comparison of Sentiment Scores - {game_name}')  # Shorten title
     axes[1].set_xlabel('Cluster')
     axes[1].set_ylabel('Sentiment Score')
 
     # Distribution of sentiment scores across all reviews
     sns.histplot(game_df['sentiment_score'], ax=axes[2], color='red', kde=True)
-    axes[2].set_title(f'Distribution of Sentiment Scores - {game_name}')
+    axes[2].set_title(f'Sentiment Score Distribution - {game_name}')  # Shorten title
     axes[2].set_xlabel('Sentiment Score')
     axes[2].set_ylabel('Frequency')
 

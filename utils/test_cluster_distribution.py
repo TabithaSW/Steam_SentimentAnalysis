@@ -4,7 +4,7 @@ import pandas as pd
 df = pd.read_csv('data/KMEANS_cluster_TESTres.csv')
 
 # Group the data by game and cluster, then summarize sentiment scores
-distribution_summary = df.groupby(['game_id', 'cluster'])['sentiment_score'].agg(['mean', 'std', 'min', 'max', 'count']).reset_index()
+distribution_summary = df.groupby(['game_name', 'cluster'])['sentiment_score'].agg(['mean', 'std', 'min', 'max', 'count']).reset_index()
 
 # View the distribution summary for each game and cluster
 print(distribution_summary)
