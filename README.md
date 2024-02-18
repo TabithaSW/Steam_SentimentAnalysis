@@ -10,6 +10,8 @@ A few examples of the Kmeans analysis results:
 | ![Figure 1](Figure_1.png) | ![Figure 2](bg3_res.png) | ![Figure 3](cod_res.png) |
 
 - You would anticipate that a game awarded "Game of the Year," such as Baldur's Gate 3, would exhibit a prevalent distribution of highly positive sentiment scores. Conversely, a title like Call of Duty (COD) is likely to attract both fervent enthusiasts and staunch detractors. This analysis is logical, but what about niche or contentious titles? Let's delve into the sentiments surrounding these games and uncover the true feelings of players!
+- Steam's COD Analysis: Mixed 57% of the 529,504 user reviews for this game are positive.
+- Steam BG3 Analysis: Overwhelmingly Positive 96% of the 505,051 user reviews for this game are positive.
 
 
 **Data Collection & Preprocessing**
