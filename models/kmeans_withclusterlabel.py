@@ -178,7 +178,8 @@ def main():
     df = pd.read_csv('data/processed_reviews.csv')
     df['processed_review'] = df['processed_review'].fillna('')
 
-    vectorizer = TfidfVectorizer(max_features=10, ngram_range=(1, 2), min_df=3, max_df=0.8)
+    vectorizer = TfidfVectorizer(max_features=50, ngram_range=(1, 2)) 
+    #min_df=3, max_df=0.8
     #  If min_df is set to 5, it means that a word must appear in at least 5 different game reviews to be included in the analysis
     #  If max_df is set to 0.7 (or 70%), it means that any word appearing in more than 70% of the game reviews will be excluded from the analysis
     num_clusters = 4

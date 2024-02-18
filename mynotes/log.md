@@ -19,3 +19,5 @@
 - Trying to refine the algorithm, need clusters per game to be homogenous in terms of sentiment. Made a utlity for checking what terms whave the highest TF-IDF scores (they indicate their importance in the documents) so I I can make sure it's using the right vader-lexicon terms to identify cluster labelling.
 - Made a Silhouette Method script so I can get a better idea of how many clusters to use. (Feature engineering/fine tuning)
 - Made another utility test_cluster_distribution to make sure they are properly being generated.
+- Adjusted stopwords to exclude all mentions of the game name.
+- Changed the visuals to be PER GAME for the wordclouds by cluster visual, sentiment distribution across clusters visual, and sentiment scores between clusters (violin plot), and distribution of sentiment scores across all reviews - because the clusters are generated on all the (200) reviews PER GAME. So making a visual of all the clusters wouldn't correctly portray the distribution of sentiment (since each game sentiment distribution is different)

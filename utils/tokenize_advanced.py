@@ -17,15 +17,82 @@ import os
 
 # Slang and Abbreviations Dictionary
 slang_abbrev_dict = {
-    "gg": "good game",
-    "op": "overpowered",
-    "npc": "non-player character",
+    "pve": "player versus environment",
+    "pvp": "player versus player",
     "mmo": "massively multiplayer online",
-    "rpg": "role-playing game",
+    "mmorpg": "massively multiplayer online role-playing game",
     "fps": "first-person shooter",
-    # Add more slang and abbreviations here as needed.
+    "rts": "real-time strategy",
+    "rpg": "role-playing game",
+    "mob": "mobile object",
+    "mob": "monster or enemy",
+    "aggro": "aggression or aggressiveness",
+    "agg": "aggressive",
+    "dps": "damage per second",
+    "aoe": "area of effect",
+    "buff": "a beneficial status effect",
+    "nerf": "a detrimental status effect",
+    "proc": "process or activation of a special ability",
+    "raid": "a large group of players tackling a difficult challenge",
+    "loot": "items or rewards dropped by defeated enemies",
+    "respawn": "the reappearance of a player or enemy after being defeated",
+    "spawn": "the point where players or enemies enter the game world",
+    "tp": "teleport or teleportation",
+    "gg": "good game",
+    "wp": "well played",
+    "glhf": "good luck, have fun",
+    "ez": "easy",
+    "afk": "away from keyboard",
+    "b2p": "buy to play",
+    "f2p": "free to play",
+    "p2p": "pay to play",
+    "gank": "ambush or surprise attack",
+    "farming": "repeatedly defeating enemies or completing tasks to gain resources or experience",
+    "grinding": "repeatedly performing the same action to gain experience or resources",
+    "twink": "a low-level character that has been heavily equipped or supported by a higher-level player",
+    "whale": "a player who spends a large amount of money on microtransactions",
+    "camping": "waiting in a strategic location to ambush or defeat other players or enemies",
+    "cheese": "exploiting a game mechanic or strategy to gain an unfair advantage",
+    "noob": "a inexperienced or unskilled player",
+    "pro": "a highly skilled or experienced player",
+    "griefing": "intentionally disrupting or annoying other players",
+    "nerf": "to weaken or reduce the effectiveness of a character, item, or ability",
+    "buff": "to strengthen or improve the effectiveness of a character, item, or ability",
+    "pwn": "to defeat or dominate an opponent",
+    "rekt": "to be decisively defeated or destroyed",
+    "tryhard": "a player who tries excessively hard to win or succeed",
+    "wombo combo": "a combination of abilities or attacks that results in a devastating outcome",
+    "zerg": "a strategy involving overwhelming an opponent with sheer numbers",
+    "spawn camping": "repeatedly attacking players as they respawn in a multiplayer game",
+    "gg ez": "a sarcastic or taunting message implying that the game was easy",
+    "toxic": "behaving in a disruptive, offensive, or unsportsmanlike manner",
+    "trolling": "deliberately provoking or antagonizing other players for amusement",
+    "gank": "to ambush or surprise attack an opponent in a multiplayer game",
+    "lag": "a delay or interruption in the gameplay due to slow or inconsistent network connection",
+    "hacker": "a player who uses unauthorized or illegal methods to gain an advantage in a game",
+    "exploit": "a software or gameplay loophole that allows players to gain an unfair advantage",
+    "meta": "the most effective or popular strategies, characters, or builds in a game",
+    "easter egg": "a hidden feature, message, or reference in a game",
+    "speedrun": "completing a game as quickly as possible",
+    "glitch": "a software or programming error that causes unexpected behavior in a game",
+    "mod": "a modification or alteration made to a game by players or fans",
+    "beta": "a pre-release version of a game that is made available for testing",
+    "alpha": "an early development version of a game that is not yet feature-complete",
+    "early access": "a system where players can purchase and play a game before its official release",
+    "dlc": "downloadable content, additional game content released after the initial launch",
+    "expansion": "a major addition to a game that adds new features, content, or gameplay mechanics",
+    "patch": "a software update that fixes bugs, balances gameplay, or adds new features to a game",
+    "server": "a computer or system that hosts multiplayer game sessions and facilitates communication between players",
+    "multiplayer": "a mode of gameplay where multiple players can interact and compete with each other in real-time",
+    "singleplayer": "a mode of gameplay where a player can experience the game alone, without interaction from other players",
+    "co-op": "a mode of gameplay where multiple players can collaborate and work together towards a common goal",
+    "campaign": "a series of connected missions or levels that form the main storyline of a game",
+    "quest": "a task or objective given to a player by a non-player character in a game",
+    "respawn": "the act of a player or enemy reappearing in the game world after being defeated",
+    "npc": "non-player character, a character controlled by the game's artificial"
 }
 
+# so many stopwords ugh
 additional_stopwords = {
     "actually", "also", "although", "always", "am", "among", "amount", "another", "anyone", "anything",
     "around", "away", "back", "because", "become", "becomes", "becoming", "been", "before", "begin",
@@ -37,23 +104,45 @@ additional_stopwords = {
     "let", "like", "likely", "lot", "made", "make", "many", "may", "me", "might", "more", "most", "much",
     "must", "my", "myself", "never", "new", "no", "nobody", "none", "nor", "not", "nothing", "now", "of",
     "off", "often", "on", "once", "one", "only", "or", "other", "our", "ours", "out", "over", "own", "part",
-    "people", "place", "player", "play","play er","player", "put", "say", "see", "seem", "seemed", "seems", "several", "she",
+    "people", "place", "player", "put", "say", "see", "seem", "seemed", "seems", "several", "she",
     "should", "show", "since", "some", "something", "sometime", "somewhere", "still", "such", "take", "than",
     "that", "the", "their", "them", "then", "there", "therefore", "these", "they", "thing", "this", "those",
     "though", "through", "thus", "time", "to", "together", "too", "toward", "try", "under", "until", "up",
     "upon", "us", "use", "used", "using", "very", "want", "was", "way", "we", "well", "went", "were", "what",
     "when", "where", "whether", "which", "while", "who", "whole", "whose", "why", "will", "with", "within",
     "without", "would", "yet", "you", "your", "yours", "yourself","hour","player","buy","review","game","system",
-    "feel","edit","instead","really","playing","hour","baby","character","making","update","think","take",
+    "feel","edit","instead","really","playing","baby","character","making","update","think","take",
     "absolutely","point","feel","etc","hit","fact","date","month","item","area","better","run","crouch","jump","h1","quite","free",
     "thing","played","thinking","ability","start","end","begin","steam","level","gameplay","change","everything","buy","sell","money","quest",
-    "player", "need", "stop", "thing", "setting", "game", "playing", "hour", "year", "month", "overall",
+    "player", "need", "stop", "thing", "year", "month", "overall",
     "sometimes", "thing", "get", "experience", "feel", "time", "dev", "get", "got", "money", "almost", "job",
     "td tr", "tldr", "etc", "feature", "right", "little", "match", "main", "item", "getting", "account", "reason",
     "everyone", "everything", "person", "place", "work", "server", "full", "b", "ever", "nan", "current", "sure",
     "step", "content", "story", "enough", "review", "two", "one","td","team","devs","u","list","mod","second","seen","said",
     "added","mean","felt","make","looking"
 }
+additional_stopwords.update({
+    "player","need", "stop", "thing", "hour", "year", "month", "overall",
+    "sometimes", "thing", "get", "experience", "feel", "time", "dev", "get", "got", "money", "almost", "job",
+    "td tr", "tldr", "etc", "feature", "right", "little", "match", "main", "item", "getting", "account", "reason",
+    "everyone", "everything", "person", "place", "work", "server", "full", "b", "ever", "nan", "current", "sure",
+    "step", "content", "story", "enough", "review", "two", "one","td","team","devs","u","list","mod","second","seen","said",
+    "added","mean","felt","make","looking","map","look","ubisoft","city","steampowered","http","dlc","grow","island","season pass",
+    "store","tell","various","outside","coming","case","head","offline","true","guy","girl","sorry","thank","fromsoftware","bethesda",
+    "option","opinion","return","15h","entire","part","create","fully","simulation","mission","drift","previous","before"
+})
+
+additional_stopwords.update({
+    "furthermore", "thus", "nevertheless", "moreover", "nonetheless", "regardless", "consequently", "hence",
+    "therefore", "otherwise", "likewise", "similarly", "surprisingly", "ultimately", "meanwhile", "additionally",
+    "accordingly", "specifically", "subsequently", "notwithstanding", "altogether", "nevertheless", "moreover",
+    "nevertheless", "conversely", "therefore", "furthermore", "otherwise", "additionally", "simultaneously",
+    "similarly", "meanwhile", "respectively", "consequently", "accordingly", "likewise", "subsequently",
+    "ultimately", "particularly", "notwithstanding", "moreover", "therefore", "consequently", "additionally",
+    "similarly", "consequently", "nevertheless", "therefore", "additionally", "furthermore"
+})
+
+
 
 # Expanded list of sentiment words to prioritize in analysis (game related so we can get a good feel of the consensus)
 sentiment_words = {
@@ -92,7 +181,7 @@ sentiment_words = {
     "slow-burn", "fast-moving", "steady", "evolving", "static", "revolutionary", "traditional"
 }
 
-# Function to handle negations (e.g., "not good" becomes "not_good")
+## Function to handle negations (e.g., "not good" becomes "not_good")
 def handle_negations(input_text):
     negation_words = ['not', 'no', 'never', 'neither', 'nor', 'cannot']
     negated_tokens = []
@@ -119,11 +208,7 @@ def emphasize_detection(text):
     emphasized_text = re.sub(r'(\b\w+\b)(\s+\1)+', r'\1_emphasized', text)
     return emphasized_text
 
-# Combine the default NLTK stopwords with your additional stopwords
-all_stopwords = set(stopwords.words('english')).union(additional_stopwords)
-sentiment_words = set(sentiment_words)  # Ensure this is a set for efficient look-up
-
-def preprocess_text(text):
+def preprocess_text(text, game_names):
     # Decode text to UTF-8 to handle special characters
     text = text.encode('utf-8', 'ignore').decode('utf-8')
     
@@ -134,6 +219,12 @@ def preprocess_text(text):
     text = handle_negations(text)  # Handle negations
     text = emphasize_detection(text)  # Detect and emphasize emphasized words
     tokens = word_tokenize(text)
+    
+    # Combine the default NLTK stopwords with additional stopwords
+    all_stopwords = set(stopwords.words('english')).union(additional_stopwords)
+    
+    # Add game names to the stopwords set
+    all_stopwords.update(game_names.lower().split())
     
     # Filter out stopwords and keep sentiment words
     filtered_tokens = [
@@ -149,7 +240,7 @@ def main():
     df = pd.read_csv('data/steam_reviews.csv', encoding='utf-8')
     
     # Apply the preprocessing function to the review text
-    df['processed_review'] = df['review_text'].apply(lambda x: preprocess_text(x))
+    df['processed_review'] = df.apply(lambda row: preprocess_text(row['review_text'], row['game_name']), axis=1)
     
     # Save the entire processed dataset with UTF-8 encoding
     df.to_csv('data/processed_reviews.csv', index=False, encoding='utf-8')

@@ -33,10 +33,10 @@ In my project, I employ unsupervised learning models to cluster the reviews, aim
 To visually represent the findings, I will create word clouds that highlight the most frequent terms within each cluster (per game as well), offering an immediate sense of the predominant themes. Additionally, I will use box-whisker and violin charts to present a comparative view of sentiments across different clusters, finding a clear distribution, and enabling a clear visualization of each games emotional landscape. (True Sentiment Per Game)
 
 ***Current Visuals:***
-- Wordclouds for each cluster, users must know the overarching sentiment behind the clusters per game! What is determining the sentiment of these clusters? Lets look!
+- Wordclouds for each set of clusters, users must know the overarching sentiment behind the clusters per game! What is determining the sentiment of these clusters? Lets look!
 - Sentiment distribution across clusters using box and whisker plots and a violin plot. How varied are the clusters, are they accurate in determining the true view of the game?
 - An average sentiment score per game, bar graph form. The K-means clustering model assigns sentiment scores to each review, and then, by aggregating these scores for each game and calculating the average, you obtain a single sentiment score representative of the overall sentiment for that game. This approach allows you to summarize the sentiment of each game based on the sentiments expressed in its reviews.
-- Distribution of the sentiment scores, how frequently do these scores occur? Can we ensure the reviews vary in their sentiment (determined by the positive/negative words in the review), as they should! There should be a decent amount of varience across the scores, and less varied for games that players LOVED vs HATED!
+- Distribution of the sentiment scores, how frequently do these scores occur for each game? Can we ensure the reviews vary in their sentiment (determined by the positive/negative words in the review), as they should! There should be a decent amount of varience across the scores, and less varied for games that players LOVED vs HATED!
 
 **Current Models:**
 
