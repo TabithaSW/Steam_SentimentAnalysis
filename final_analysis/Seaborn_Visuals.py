@@ -49,6 +49,6 @@ axes[1, 0].tick_params(axis='y', rotation=0)
 
 # Adjust layout to not overlap
 plt.tight_layout()
-plt.savefig('seaborn_plots.jpg', format='jpg')
+#plt.savefig('seaborn_plots.jpg', format='jpg')
 plt.show()
 
