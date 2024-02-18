@@ -43,6 +43,7 @@ To visually represent the findings, I will create word clouds that highlight the
 ***K-Means Clustering***
 - Description: A method that groups reviews into a specified number of clusters based on the similarity of their content. Clustering all reviews for each game into a few clusters (e.g., positive, negative, neutral), the algorithm likely aimed to capture the overall sentiment expressed by players toward each game.
 - The kmeans script is creating clusters for every game in the CSV, not for every review (overall clusters) It then performs clustering on the reviews for each game separately, so each cluster contains reviews that are related to a specific game. This approach allows for analyzing and understanding sentiment patterns within the reviews of individual games, rather than across all reviews indiscriminately.
+
 ***Fine Tuning - Feature Engineering***
 - Revised code with silhouette score and Davies-Bouldin index evaluations for cluster evaluation. Want to ensure clusters have overarching theme, solid distribution.
 - Used highest TF-IDF scores from vectorizer to determine which words were making the most impact on the cluster themes. Added common gaming terminology to the lexicon so that it could more precisely determine the sentiment of the reviews.
