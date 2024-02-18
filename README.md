@@ -51,7 +51,7 @@ To visually represent the findings, I will create word clouds that highlight the
 
 **IN PROGRESS:**
 
-- For current log notes, check the mynotes folder and the log to see what was changed, when, and why!
+- For all changes, additions, and updates - check the mynotes folder and the log to see what EXACTLY was changed, when, and why!
   
 ***Hierarchical Clustering***
 - Description: Builds a tree-like structure of clusters, showing how each review is grouped at various levels of similarity.
