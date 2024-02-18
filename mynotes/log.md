@@ -1,3 +1,6 @@
+***Viewers:***
+
+I kindly request that individuals who clone this repository refrain from reproducing my work verbatim and presenting it as their own project. Please take the time to review the license; this repository is public and intended for educational purposes and career development. If you are interested in contributing to the project, please reach out to me via message.
 
 **1/01 - 2/15**
 - Made a steam scrape script & the tokenzing script (utils) to pre-process, lemmatize and pull out stop words and pick which words will help determine sentiment. Made an overall processed csv and test/train csv to feed to the models. Fed it to the kmeans model first, and made basic visuals (wordclouds, etc), to view clusters and find primary identies. Making analysis web based using flask framework, tested html homepage from flask run.py. 
