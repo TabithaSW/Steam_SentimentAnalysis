@@ -5,9 +5,11 @@ The goal of this project is to provide a more nuanced understanding of player se
 
 A few examples of the Kmeans analysis results:
 
-| Figure 1 | Figure 2 | Figure 3 |
+| Sentiment Among Best Sellers | BG3 Sentiment | Call of Duty Sentiment |
 |----------|----------|----------|
 | ![Figure 1](Figure_1.png) | ![Figure 2](bg3_res.png) | ![Figure 3](cod_res.png) |
+
+- You would anticipate that a game awarded "Game of the Year," such as Baldur's Gate 3, would exhibit a prevalent distribution of highly positive sentiment scores. Conversely, a title like Call of Duty (COD) is likely to attract both fervent enthusiasts and staunch detractors. This analysis is logical, but what about niche or contentious titles? Let's delve into the sentiments surrounding these games and uncover the true feelings of players!
 
 
 **Data Collection & Preprocessing**
