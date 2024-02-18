@@ -15,3 +15,7 @@
 - Adding new words and their associated sentiment intensity scores to the VADER lexicon dictionary. Game specific sentiment scores to the kmeans VADER because sometimes jargon in the reviews are viewed different than traditional reviews, since gamers don't use the same terminology as movie reviews or podcast reviews, etc. Stuff like gg, rpg. Also because words like complex, challenge, difficulty, those may be perceived as negative in regular reviews but for games that would not be perceived this way. 
 - Added the overall review score from steam to my steam_scrape so I can compare my kmeans cluster results to actual steam game labels instead of training my unsupervised models on labelled data. For example, "Review Summary for Poppy Playtime: Very Positive81% of the 65,131 user reviews for this game are positive."
 
+**2/17 more lol**
+- Trying to refine the algorithm, need clusters per game to be homogenous in terms of sentiment. Made a utlity for checking what terms whave the highest TF-IDF scores (they indicate their importance in the documents) soi I can make sure it's using the right vader-lexicon terms to identify labelling.
+- Made a Silhouette Method script so I can get a better idea of how many clusters to use. (Feature engineering/ fine tuning)
+- Made another utility test_cluster_distribution to make sure they are properly being generated.

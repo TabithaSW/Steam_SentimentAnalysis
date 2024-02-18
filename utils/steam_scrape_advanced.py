@@ -91,7 +91,7 @@ def get_n_reviews(appid_game_summary_tuple, n=50):
 reviews = []
 appids_and_names_and_reviews = get_n_appids(50)
 for appid_game_summary_tuple in appids_and_names_and_reviews:
-    reviews += get_n_reviews(appid_game_summary_tuple, 50)
+    reviews += get_n_reviews(appid_game_summary_tuple, 200)
 
 extracted_reviews = []
 for review in reviews:
@@ -104,5 +104,5 @@ for review in reviews:
     extracted_reviews.append(review_data)
 
 df = pd.DataFrame(extracted_reviews)
-df.to_csv('steam_reviews.csv', index=False)
+df.to_csv('data/steam_reviews.csv', index=False)
 print("Finished scraping and saved to steam_reviews.csv")
