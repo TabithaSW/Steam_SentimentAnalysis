@@ -7,17 +7,6 @@ Here's an example visual from Kmeans analysis!
 ![Figure 1](Figure_1.png)
 
 
-**Toolset:**
-- Flask
-- Python 
-- NLTK
-- Scikit-Learn
-- Gensim
-- Pandas
-- Transformers
-- Feather/CSV Files
-- Git and GitHub
-
 **Data Collection & Preprocessing**
 
 I have developed scripts to efficiently scrape Steam reviews for various games. The collected data undergoes a thorough preprocessing stage where I tokenize and lemmatize the review text. This process is crucial for cleaning and preparing the data, making it suitable for the subsequent analysis. By breaking down the text into its base forms, I can ensure that the analysis is based on the core content of the reviews, removing any noise that could skew the results.

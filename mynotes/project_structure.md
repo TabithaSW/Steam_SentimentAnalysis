@@ -55,3 +55,13 @@ This structure outlines the organization of the Steam_SentimentAnalysis project,
 - `run.py`: Script to run the web application.
 - `setup.py`: Setup script for the project.
 
+**Toolset:**
+- Flask
+- Python 
+- NLTK
+- Scikit-Learn
+- Gensim
+- Pandas
+- Transformers
+- Feather/CSV Files
+- Git and GitHub
