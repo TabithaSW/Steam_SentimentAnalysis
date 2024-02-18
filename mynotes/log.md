@@ -10,5 +10,8 @@
 
 
 **2/17:**
-- Advancing the tokenizing so the pre-processed data is better quality.  Emphasis Detection,  Handling for Slang and Abbreviations, Negation Handling, also want to add Emoji and Emoticon Analysis since this is important to these type of reviews, gamers use slang/emojis.
+- Advancing the tokenizing so the pre-processed data is better quality.  Emphasis Detection,  Handling for Slang and Abbreviations, Negation Handling, also want to add Emoji and Emoticon Analysis since this is important to these type of reviews, gamers use slang/emojis. Moved old tokenize file to new folder, old_models_and_tests.
+- Adding new words and their associated sentiment intensity scores to the VADER lexicon dictionary. Game specific sentiment scores to the kmeans VADER because sometimes jargon in the reviews are viewed different than traditional reviews, since gamers don't use the same terminology as movie reviews or podcast reviews, etc. Stuff like gg, rpg. Also because words like complex, challenge, difficulty, those may be perceived as negative in regular reviews but for games that would not be perceived this way. 
+- Changed the kmeans model to account for emphasis, slang, and negation from the pre-process.
+- Added the overall review score from steam to my steam_scrape so I can compare my kmeans cluster results to actual steam game labels instead of training my unsupervised models on labelled data. For example, "Review Summary for Poppy Playtime: Very Positive81% of the 65,131 user reviews for this game are positive."
 

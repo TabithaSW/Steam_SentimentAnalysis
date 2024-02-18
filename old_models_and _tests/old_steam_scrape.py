@@ -4,13 +4,16 @@
 # I modified his original version so that this scrapes for game name and app id, formats the reviews per game, process as csv. 
 # I needed to collect the game names along with the reviews in a tuple format and collect as CSV rather than feather.
 # Steam API does not have reviews available for data collection yet, so I web scraped and pre-processed.
+# 2/17  updated script with the changes to include the review summary extraction.
 
 import requests # A Python HTTP library for sending all kinds of HTTP requests. 
 # Used here to make GET requests to the Steam website.
 
 import bs4 # Part of the Beautiful Soup library, used for parsing HTML and XML documents. It creates parse trees that is helpful to extract the data easily
 from bs4 import BeautifulSoup
-import pandas as pd # A data manipulation and analysis library.
+import pandas as pd # A data manipulation and analysis library.\
+from html import unescape
+
 
 
 def get_reviews(appid, params={'json': 1}):
@@ -29,46 +32,51 @@ def get_reviews(appid, params={'json': 1}):
 
 
 
+
 def get_n_appids(n=100, filter_by='topsellers'):
     """
-    Function get_n_appids, pulls appid which is unique for each Steam game.
-    Takes two parameters: n (the number of app IDs and game names to retrieve, defaulting to 100) 
-    and filter_by (the criterion for filtering games, defaulting to 'topsellers').
-    Returns a list of tuples where each tuple contains an app ID and the corresponding game name.
+    Fetches appids along with the game names and review summaries.
     """
-    appids = []  # Initializes an empty list to store the app IDs.
-    game_names = []  # Initializes an empty list to store the game names.
+    appids = []
+    game_names = []
+    review_summaries = []
 
     url = f'https://store.steampowered.com/search/?category1=998&filter={filter_by}&page='
-    # Sets the base URL for searching games on Steam, including the filter criteria and a placeholder for the page number.
     
-    page = 0  # Initializes the page number to 0.
+    page = 0
 
-    while page * 25 < n:
-        # Begins a loop to paginate through the search results. Steam typically displays 25 results per page, so this continues until enough app IDs are gathered.
-        page += 1  # Increments the page number.
-
+    while len(appids) < n:
+        page += 1
         response = requests.get(url=url + str(page), headers={'User-Agent': 'Mozilla/5.0'})
-        # Sends a GET request for each new page, again setting a browser-like user agent in the headers.
         soup = BeautifulSoup(response.text, 'html.parser')
-        # Parses the HTML response using Beautiful Soup.
 
         for row in soup.find_all(class_='search_result_row'):
-            # Iterates over each game listing found in the parsed HTML.
-            appid = row['data-ds-appid']  # Extracts the app ID from each listing.
-            game_name = row.find('span', class_='title').text  # Extracts the game name.
+            appid = row['data-ds-appid']
+            game_name = row.find('span', class_='title').text
+            # Extract the review summary information
+            review_summary_element = row.find('span', class_='search_review_summary')
+            if review_summary_element and 'data-tooltip-html' in review_summary_element.attrs:
+                # Unescape HTML entities in the tooltip text
+                review_summary_html = unescape(review_summary_element['data-tooltip-html'])
+                review_summary_text = BeautifulSoup(review_summary_html, 'html.parser').text
+            else:
+                review_summary_text = "No user reviews"
+
             appids.append(appid)
             game_names.append(game_name)
+            review_summaries.append(review_summary_text)
 
-    return list(zip(appids, game_names))[:n]
+            if len(appids) >= n:
+                break
 
+    return list(zip(appids, game_names, review_summaries))[:n]
 # collected_ids = get_n_appids(n=100,filter_by='topsellers')
 # print("APP IDS", collected_ids) TEST WORKED HERE
-def get_n_reviews(appid_game_tuple, n=50):
+def get_n_reviews(appid_game_summary_tuple, n=50):
     """
     Collects up to 'n' reviews for a given Steam game.
     """
-    appid, game_name = appid_game_tuple
+    appid, game_name, review_summary = appid_game_summary_tuple  # Corrected variable name here
     reviews = []
     cursor = '*'
     params = {
@@ -92,6 +100,7 @@ def get_n_reviews(appid_game_tuple, n=50):
         for review in batch_reviews:
             review['game_id'] = appid
             review['game_name'] = game_name
+            # Optionally include 'review_summary' from 'appid_game_summary_tuple' if needed
         reviews += batch_reviews
         n -= len(batch_reviews)
         if len(batch_reviews) < params['num_per_page']:
@@ -101,9 +110,10 @@ def get_n_reviews(appid_game_tuple, n=50):
 
 # Collect reviews for each game
 reviews = []
-appids_and_names = get_n_appids(50)  # Adjust the number to how many games you want to process
-for appid_game_tuple in appids_and_names:
-    reviews += get_n_reviews(appid_game_tuple, 50)  # Collect 50 reviews for each game
+appids_and_names_and_reviews = get_n_appids(50)  # Adjust the number to how many games you want to process
+for appid_game_summary_tuple in appids_and_names_and_reviews:
+    reviews += get_n_reviews(appid_game_summary_tuple, 50)  # Collect 50 reviews for each game
+
 
 # Extract relevant data from each review, we want to csv format organized for tokenizing:
 extracted_reviews = []
@@ -111,7 +121,8 @@ for review in reviews:
     review_data = {
         'game_id': review['game_id'],
         'game_name': review['game_name'],
-        'review_text': review['review']
+        'review_text': review['review'],
+        'review_summary': review.get('review_summary', '')  # Include the review summary if available
     }
     extracted_reviews.append(review_data)
 
