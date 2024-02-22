@@ -38,22 +38,22 @@ To visually represent the findings, I will create word clouds that highlight the
 
 **Current Models:**
 
-***K-Means Clustering***
+### K-Means Clustering
 - Description: A method that groups reviews into a specified number of clusters based on the similarity of their content. Clustering all reviews for each game into a few clusters (e.g., positive, negative, neutral), the algorithm likely aimed to capture the overall sentiment expressed by players toward each game.
 - The kmeans script is creating clusters for every game in the CSV, not for every review (overall clusters) It then performs clustering on the reviews for each game separately, so each cluster contains reviews that are related to a specific game. This approach allows for analyzing and understanding sentiment patterns within the reviews of individual games, rather than across all reviews indiscriminately.
 
-***Fine Tuning - Feature Engineering***
+***K-means Fine Tuning - Feature Engineering***
 - Revised code with silhouette score and Davies-Bouldin index evaluations for cluster evaluation. Want to ensure clusters have overarching theme, solid distribution.
 - Used highest TF-IDF scores from vectorizer to determine which words were making the most impact on the cluster themes. Added common gaming terminology to the lexicon so that it could more precisely determine the sentiment of the reviews.
 - Used silhouette method to help determine the amount of clusters to choose for kmeans.
 
+### Hierarchical Clustering
+- Description: Builds a tree-like structure of clusters, showing how each review is grouped at various levels of similarity per game.
+- Application to Steam Reviews: This method allows you to see not just which reviews are similar, but also how they relate to each other in a multi-level hierarchy. It can reveal nuanced relationships between different reviews, such as grouping together all reviews that discuss a specific game feature, then further subdividing them based on sentiment or specific aspects of that feature.
+
 **IN PROGRESS:**
 
 - For all changes, additions, and updates - check the mynotes folder and the log to see what EXACTLY was changed, when, and why!
-  
-***Hierarchical Clustering***
-- Description: Builds a tree-like structure of clusters, showing how each review is grouped at various levels of similarity.
-- Application to Steam Reviews: This method allows you to see not just which reviews are similar, but also how they relate to each other in a multi-level hierarchy. It can reveal nuanced relationships between different reviews, such as grouping together all reviews that discuss a specific game feature, then further subdividing them based on sentiment or specific aspects of that feature.
 
 ***Latent Dirichlet Allocation (LDA) for Topic Modeling***
 - Description: An advanced technique that discovers latent topics within the text data. Each review can contribute to multiple topics to varying degrees.
