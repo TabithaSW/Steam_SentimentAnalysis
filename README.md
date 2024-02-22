@@ -49,9 +49,11 @@ To visually represent the findings, I will create word clouds that highlight the
 
 ## Hierarchical Clustering
 - Description: Builds a tree-like structure of clusters, showing how each review is grouped at various levels of similarity per game.
+- Hierarchical Clustering builds a tree of clusters without requiring the number of clusters to be specified beforehand. 
+- It's more informative for understanding the data structure and can reveal how clusters are related at different levels of granularity.
 - Application to Steam Reviews: This method allows you to see not just which reviews are similar, but also how they relate to each other in a multi-level hierarchy. It can reveal nuanced relationships between different reviews, such as grouping together all reviews that discuss a specific game feature, then further subdividing them based on sentiment or specific aspects of that feature.
 
-# IN PROGRESS:
+# In Progress:
 
 - For all changes, additions, and updates - check the mynotes folder and the log to see what EXACTLY was changed, when, and why!
 
