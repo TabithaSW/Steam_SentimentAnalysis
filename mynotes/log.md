@@ -24,3 +24,8 @@ I kindly request that individuals who clone this repository refrain from reprodu
 - Made another utility test_cluster_distribution to make sure they are properly being generated.
 - Adjusted stopwords to exclude all mentions of the game name.
 - Changed the visuals to be PER GAME for the wordclouds by cluster visual, sentiment distribution across clusters visual, and sentiment scores between clusters (violin plot), and distribution of sentiment scores across all reviews - because the clusters are generated on all the (200) reviews PER GAME. So making a visual of all the clusters wouldn't correctly portray the distribution of sentiment (since each game sentiment distribution is different)
+
+**2/18 - 2/22:**
+- Added some custom plots, updated front page read me with examples from BG3 and COD.
+- Updated sil scores analysis tests for clusters for kmeans.
+- Created initial Hierarchical Clustering model, working on feature eng/fine tuning model.
