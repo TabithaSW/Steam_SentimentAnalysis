@@ -4,6 +4,13 @@ from sklearn.cluster import KMeans
 from nltk.sentiment import SentimentIntensityAnalyzer
 from sklearn.metrics import silhouette_score, davies_bouldin_score
 
+"""
+
+K-Means is a centroid-based clustering method, which partitions the data into K clusters by minimizing the variance within each cluster. 
+It requires specifying the number of clusters in advance and works well for spherical clusters.
+
+"""
+
 def cluster_reviews_for_game(df, game_id, game_name, vectorizer, num_clusters):
     """
     Clusters reviews for a specific game and evaluates the clustering using Silhouette Score and Davies-Bouldin Index.
