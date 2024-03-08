@@ -29,3 +29,6 @@ I kindly request that individuals who clone this repository refrain from reprodu
 - Added some custom plots, updated front page read me with examples from BG3 and COD.
 - Updated sil scores analysis tests for clusters for kmeans.
 - Created initial Hierarchical Clustering model, working on feature eng/fine tuning model.
+
+**3/08**
+- Updated the models slightly and separated the custom lexicon to expand it for further accuracy.
