@@ -32,3 +32,4 @@ I kindly request that individuals who clone this repository refrain from reprodu
 
 **3/08**
 - Updated the models slightly and separated the custom lexicon to expand it for further accuracy.
+- Added template LDA model, just being tested on HellDivers 2 Reviews for now.
