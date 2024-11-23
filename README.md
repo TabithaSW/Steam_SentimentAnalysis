@@ -8,7 +8,7 @@ The goal of this project is to provide a more nuanced understanding of player se
 **A few examples of the Kmeans analysis results:**
 
 | Sentiment Among Best Sellers | BG3 Sentiment |
-|----------|----------|----------|
+|----------|----------|
 | ![Figure 1](All_Games.png) | ![Figure 2](bg3.png) | 
 
 - You would anticipate that a game awarded "Game of the Year," such as Baldur's Gate 3, would exhibit a prevalent distribution of highly positive sentiment scores. 
