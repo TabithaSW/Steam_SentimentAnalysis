@@ -15,7 +15,7 @@ Project Structure Summary:
 
 - **/mynotes**: Contains logs and project structure for progress on analysis and models.
 
-- **/utils**: Contains scripts for collecting, cleaning, preprocessing, and analyzing data before putting it into the models. Current Scripts: 1. TF-IDF scores that can be used as features for further analysis, such as clustering (e.g., K-Means) or sentiment analysis, 2. Silhoutte Score method to help determine the best number of clusters for kmeans, 3. A scraping tool to collect the data (steam reviews), 4. A way to summarize the sentiment distribution, 5. Tokenizer and train/test script for advanced and thorough preprocessing pipeline for text data, specifically tailored to gaming reviews.
+- **/utils**: Contains scripts for collecting, cleaning, preprocessing, and analyzing data before putting it into the models. Current Scripts: 1. TF-IDF scores that can be used as features for further analysis, such as clustering (e.g., K-Means) or sentiment analysis, 2. Silhoutte Score method to help determine the best number of clusters for kmeans, 3. A scraping tool to collect the data (steam reviews),  4. Tokenizer and train/test script for advanced and thorough preprocessing pipeline for text data, specifically tailored to gaming reviews.
 
 
 

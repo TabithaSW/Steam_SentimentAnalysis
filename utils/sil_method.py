@@ -20,7 +20,7 @@ X = vectorizer.fit_transform(df['processed_review'])
 
 
 # Range of clusters to try
-cluster_range = range(2, 11)  
+cluster_range = range(2, 10)  
 # 2 to 10, which is a typical range to explore in clustering.
 
 silhouette_scores = []
@@ -54,3 +54,15 @@ optimal_k = cluster_range[np.argmax(silhouette_scores)]
 print(f"The optimal number of clusters is: {optimal_k}")
 
 # By testing multiple k values, we ensure that the clusters chosen are the most appropriate for the data/reviews
+"""
+Sample Output:
+For k=2, the average silhouette score is: 0.02584101455284097
+For k=3, the average silhouette score is: 0.033431033207707524
+For k=4, the average silhouette score is: 0.03899271631970048
+For k=5, the average silhouette score is: 0.04424167733013159
+For k=6, the average silhouette score is: 0.04366900754649064
+For k=7, the average silhouette score is: 0.045631878634992164
+For k=8, the average silhouette score is: 0.05477541035139925
+For k=9, the average silhouette score is: 0.056440804774007876 (Highest score, best number of clusters to use)
+For k=10, the average silhouette score is: 0.055666342520301094
+"""

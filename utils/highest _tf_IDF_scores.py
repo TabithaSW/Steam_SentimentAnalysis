@@ -39,3 +39,24 @@ print("Top terms by TF-IDF score:")
 for term, score in sorted_terms[:20]:  # Change 20 to review more or fewer terms
     print(f"{term}: {score}")
 
+"""
+Sample output:
+Top terms by TF-IDF score:
+play: 576.3727499963279
+fun: 419.62914736607
+good: 406.8209453570872
+player: 377.94504453609017
+game: 332.46673042804014
+hour: 317.3974339052356
+great: 275.21799669999507
+world: 235.7754127690097
+bug: 234.1423011502448
+friend: 231.27912727056534
+love: 227.2274347456175
+mode: 219.7720820876635
+best: 214.6623043770781
+enemy: 207.56876489525877
+issue: 191.31318632117325
+year: 189.7722634633323
+bad: 189.4828138912251
+"""

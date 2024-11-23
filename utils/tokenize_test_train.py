@@ -133,7 +133,7 @@ additional_stopwords.update({
 })
 
 additional_stopwords.update({
-    "furthermore", "thus", "nevertheless", "moreover", "nonetheless", "regardless", "consequently", "hence",
+    "furthermore", "thus", "thing", "nevertheless", "moreover", "nonetheless", "regardless", "consequently", "hence",
     "therefore", "otherwise", "likewise", "similarly", "surprisingly", "ultimately", "meanwhile", "additionally",
     "accordingly", "specifically", "subsequently", "notwithstanding", "altogether", "nevertheless", "moreover",
     "nevertheless", "conversely", "therefore", "furthermore", "otherwise", "additionally", "simultaneously",
@@ -203,28 +203,35 @@ def expand_slang_abbreviations(text, slang_dict):
     regex = re.compile(r'\b(' + '|'.join(map(re.escape, slang_dict.keys())) + r')\b')
     return regex.sub(lambda match: slang_dict[match.group(0)], text)
 
-# Function to detect and emphasize emphasized words
 def emphasize_detection(text):
-    emphasized_text = re.sub(r'(\b\w+\b)(\s+\1)+', r'\1_emphasized', text)
+    """
+    Detect and emphasize repeated full words while ignoring single characters or numbers.
+    Regex Explanation:
+    \b: Word boundary.
+    \w{2,}: Matches words with 2 or more characters.
+    (\s+\1)+: Detects repetitions of the matched word with spaces in between.
+    Only matches valid words with sufficient length to be meaningful.
+
+    """
+    emphasized_text = re.sub(r'\b(\w{2,})(\s+\1)+\b', r'\1_emphasized', text)  # Match words with 2+ characters
     return emphasized_text
 
-def preprocess_text(text, game_names):
 
-     # Handle non-string inputs
+def preprocess_text(text, game_names):
+    # Handle non-string inputs
     if not isinstance(text, str):
         text = str(text)
 
     # Decode text to UTF-8 to handle special characters
-
     text = text.encode('utf-8', 'ignore').decode('utf-8')
     
     lemmatizer = WordNetLemmatizer()
-    # Lemmatization is the process of grouping inflected forms together as a single base form.
     text = text.lower()
     text = expand_slang_abbreviations(text, slang_abbrev_dict)  # Expand slang and abbreviations
     text = re.sub(r'\W+', ' ', text)  # Replace non-word characters with spaces
     text = handle_negations(text)  # Handle negations
     text = emphasize_detection(text)  # Detect and emphasize emphasized words
+    
     tokens = word_tokenize(text)
     
     # Combine the default NLTK stopwords with additional stopwords
@@ -233,24 +240,33 @@ def preprocess_text(text, game_names):
     # Add game names to the stopwords set
     all_stopwords.update(game_names.lower().split())
     
-    # Filter out stopwords and keep sentiment words
+    # Filter out stopwords, single characters, and numeric tokens
     filtered_tokens = [
-        lemmatizer.lemmatize(word) for word in tokens 
-        if word not in all_stopwords or word in sentiment_words
+        lemmatizer.lemmatize(word) for word in tokens
+        if word not in all_stopwords  # Not in stopwords
+        and word in sentiment_words  # Sentiment words are always kept
+        or (len(word) > 1 and not word.isnumeric())  # Exclude single characters and numbers
     ]
     
     return ' '.join(filtered_tokens)
 
 
+
 def main():
     # Load the steam reviews dataset with UTF-8 encoding to handle special characters like "é" in "Pokémon"
     df = pd.read_csv('data/steam_reviews.csv', encoding='utf-8')
+
+    # Ensure text columns are strings
+    df['review_text'] = df['review_text'].fillna('').astype(str)
+    df['game_name'] = df['game_name'].fillna('').astype(str)
     
     # Apply the preprocessing function to the review text
     df['processed_review'] = df.apply(lambda row: preprocess_text(row['review_text'], row['game_name']), axis=1)
     
     # Save the entire processed dataset with UTF-8 encoding
     df.to_csv('data/processed_reviews.csv', index=False, encoding='utf-8')
+
+    print(df['processed_review'].head()) # Test that the data is validated when changed post process.
     
     # Split the processed dataset into training and testing sets
     train, test = train_test_split(df, test_size=0.2, random_state=42)
@@ -264,3 +280,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
+Quick test:
+"""
+sample_text = "This game is great great but 1 1 1 is not cool a a a at all."
+game_names = "example_game"
+processed_text = preprocess_text(sample_text, game_names)
+print(processed_text)

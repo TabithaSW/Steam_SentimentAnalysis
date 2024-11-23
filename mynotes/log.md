@@ -30,6 +30,13 @@ I kindly request that individuals who clone this repository refrain from reprodu
 - Updated sil scores analysis tests for clusters for kmeans.
 - Created initial Hierarchical Clustering model, working on feature eng/fine tuning model.
 
-**3/08**
+**3/08:**
 - Updated the models slightly and separated the custom lexicon to expand it for further accuracy.
 - Added template LDA model, just being tested on HellDivers 2 Reviews for now.
+
+**11/22 - 11/23:**
+- Added some new comments to some of the utility scripts to better understand how the data is being preprocessed. Added new text to the read me for the BG3 analysis.
+- Changed the tokenizer utility to account for non string values in the reviews.
+- Added a readme to the mynotes folder for directions on using this project -> how to run the utilities and models.
+- Moved the test cluster distribution script to the final analysis folder. Because it can only be run after kmeans is completed.
+- I found that in some of the processed reviews single characters or numbers were appearing or being detected as emphasized. Rewrote the pre process and emphasize function to account for that issue.
