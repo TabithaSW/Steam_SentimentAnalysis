@@ -12,8 +12,14 @@ The goal of this project is to provide a more nuanced understanding of player se
 | ![Figure 1](All_Games.png) | ![Figure 2](bg3.png) | ![Figure 3](cod_1.png) |
 
 - You would anticipate that a game awarded "Game of the Year," such as Baldur's Gate 3, would exhibit a prevalent distribution of highly positive sentiment scores. Conversely, a title like Call of Duty (COD) is likely to attract both fervent enthusiasts and staunch detractors. This analysis is logical, but what about niche or contentious titles? Let's delve into the sentiments surrounding these games and uncover the true feelings of players!
-- Steam's COD Analysis: Mixed 57% of the 529,504 user reviews for this game are positive.
-- Steam BG3 Analysis: Overwhelmingly Positive 96% of the 505,051 user reviews for this game are positive.
+
+**COD:**
+- Steam's COD Score: Mixed 57% of the 529,504 user reviews for this game are positive.
+- Cluster Analysis:
+
+**BG3:**
+- Steams BG3 Score: Overwhelmingly Positive 96% of the 505,051 user reviews for this game are positive.
+- Cluster Analysis: Cluster 0 has the lowest number of reviews, meaning fewer users had strongly negative opinions. Cluster 1 dominates in terms of review count. This indicates most reviewers have neutral to positive opinions about the game. The overall sentiment is skewed toward positivity, but there is a notable presence of negativity in a smaller subset of reviews.
 
 
 # Data Collection & Preprocessing
