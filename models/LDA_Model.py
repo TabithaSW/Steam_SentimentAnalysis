@@ -27,6 +27,7 @@ dictionary.filter_extremes(no_below=5, no_above=0.5)
 bow_corpus = [dictionary.doc2bow(text) for text in processed_reviews]
 
 # Train the LDA model
+# Topic modeling is great for extracting hidden themes, but it doesn’t directly provide sentiment.
 num_topics = 5
 ldamodel = LdaModel(bow_corpus, num_topics=num_topics, id2word=dictionary, passes=20)
 
