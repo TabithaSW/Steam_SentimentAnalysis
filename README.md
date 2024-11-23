@@ -19,7 +19,10 @@ The goal of this project is to provide a more nuanced understanding of player se
 
 **BG3:**
 - Steams BG3 Score: Overwhelmingly Positive 96% of the 505,051 user reviews for this game are positive.
-- Cluster Analysis: Cluster 0 has the lowest number of reviews, meaning fewer users had strongly negative opinions. Cluster 1 dominates in terms of review count. This indicates most reviewers have neutral to positive opinions about the game. The overall sentiment is skewed toward positivity, but there is a notable presence of negativity in a smaller subset of reviews.
+- Cluster Analysis: While a significant number of reviews fall in the positive range (Cluster 1 and Cluster 2), some negative sentiment exists (Cluster 0). (Violion/Boxplot)
+- The distribution has a clear positive skew, meaning the game is generally well-received, with a minority expressing dissatisfaction. (Histogram)
+- Most reviews have positive sentiment scores, clustering around 0.5 to 1.0.
+There’s a noticeable but smaller number of negative reviews, with scores closer to -0.5 or lower. (Bar/Histogram)
 
 
 # Data Collection & Preprocessing
