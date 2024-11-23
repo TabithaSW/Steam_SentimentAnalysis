@@ -40,3 +40,4 @@ I kindly request that individuals who clone this repository refrain from reprodu
 - Added a readme to the mynotes folder for directions on using this project -> how to run the utilities and models.
 - Moved the test cluster distribution script to the final analysis folder. Because it can only be run after kmeans is completed.
 - I found that in some of the processed reviews single characters or numbers were appearing or being detected as emphasized. Rewrote the pre process and emphasize function to account for that issue.
+- Changed sil score to print out optimal cluster # at end of run.

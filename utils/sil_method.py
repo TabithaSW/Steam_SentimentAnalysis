@@ -33,6 +33,14 @@ for k in cluster_range:
     silhouette_scores.append(silhouette_avg)
     print(f"For k={k}, the average silhouette score is: {silhouette_avg}")
 
+
+# Determine the optimal number of clusters
+optimal_k = cluster_range[np.argmax(silhouette_scores)]
+print(f"The optimal number of clusters is: {optimal_k}")
+
+# Print the highest silhouette score
+highest_score = max(silhouette_scores)
+print(f"The highest silhouette score is: {highest_score}, achieved at k={optimal_k}")
 """
 Silhouette Score measures how well-separated the clusters are:
 A score close to +1 means clusters are well-separated and distinct.

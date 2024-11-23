@@ -119,28 +119,22 @@ additional_stopwords = {
     "td tr", "tldr", "etc", "feature", "right", "little", "match", "main", "item", "getting", "account", "reason",
     "everyone", "everything", "person", "place", "work", "server", "full", "b", "ever", "nan", "current", "sure",
     "step", "content", "story", "enough", "review", "two", "one","td","team","devs","u","list","mod","second","seen","said",
-    "added","mean","felt","make","looking"
-}
-additional_stopwords.update({
-    "player","need", "stop", "thing", "hour", "year", "month", "overall",
+    "added","mean","felt","make","looking","player","need", "stop", "thing", "hour", "year", "month", "overall",
     "sometimes", "thing", "get", "experience", "feel", "time", "dev", "get", "got", "money", "almost", "job",
     "td tr", "tldr", "etc", "feature", "right", "little", "match", "main", "item", "getting", "account", "reason",
     "everyone", "everything", "person", "place", "work", "server", "full", "b", "ever", "nan", "current", "sure",
     "step", "content", "story", "enough", "review", "two", "one","td","team","devs","u","list","mod","second","seen","said",
     "added","mean","felt","make","looking","map","look","ubisoft","city","steampowered","http","dlc","grow","island","season pass",
     "store","tell","various","outside","coming","case","head","offline","true","guy","girl","sorry","thank","fromsoftware","bethesda",
-    "option","opinion","return","15h","entire","part","create","fully","simulation","mission","drift","previous","before"
-})
-
-additional_stopwords.update({
+    "option","opinion","return","15h","entire","part","create","fully","simulation","mission","drift","previous","before",
     "furthermore", "thus", "thing", "nevertheless", "moreover", "nonetheless", "regardless", "consequently", "hence",
     "therefore", "otherwise", "likewise", "similarly", "surprisingly", "ultimately", "meanwhile", "additionally",
     "accordingly", "specifically", "subsequently", "notwithstanding", "altogether", "nevertheless", "moreover",
     "nevertheless", "conversely", "therefore", "furthermore", "otherwise", "additionally", "simultaneously",
     "similarly", "meanwhile", "respectively", "consequently", "accordingly", "likewise", "subsequently",
     "ultimately", "particularly", "notwithstanding", "moreover", "therefore", "consequently", "additionally",
-    "similarly", "consequently", "nevertheless", "therefore", "additionally", "furthermore"
-})
+    "similarly", "consequently", "nevertheless", "therefore", "additionally", "furthermore",
+    "you", "in", "this", "that", "but", "for", "with", "on", "or", "are", "have", "can", "my", "if", "like", "they"}
 
 
 
@@ -242,11 +236,12 @@ def preprocess_text(text, game_names):
     
     # Filter out stopwords, single characters, and numeric tokens
     filtered_tokens = [
-        lemmatizer.lemmatize(word) for word in tokens
-        if word not in all_stopwords  # Not in stopwords
-        and word in sentiment_words  # Sentiment words are always kept
-        or (len(word) > 1 and not word.isnumeric())  # Exclude single characters and numbers
-    ]
+    lemmatizer.lemmatize(word) for word in tokens
+    if word not in all_stopwords  # Exclude stopwords
+    and len(word) > 1  # Exclude single characters
+    and not word.isnumeric()  # Exclude numbers
+    or word in sentiment_words  # Keep only valid sentiment words
+    ]   
     
     return ' '.join(filtered_tokens)
 
@@ -283,9 +278,17 @@ if __name__ == "__main__":
 
 """
 Quick test:
+
+TEST 1 - REMOVE SINGLE DIGITS AND LETTERS
+TEST 2 - REMOVE STOPWORDS
 """
 sample_text = "This game is great great but 1 1 1 is not cool a a a at all."
 game_names = "example_game"
 processed_text = preprocess_text(sample_text, game_names)
-print(processed_text)
+print("TEST 1",processed_text)
 # RESULT -> this game is great_emphasized but is not_cool at all (This is perfect!)
+
+sample_text = "You play this game for fun, but it is not that great in my opinion."
+game_names = "example_game"
+processed_text = preprocess_text(sample_text, game_names)
+print("TEST 2",processed_text)
