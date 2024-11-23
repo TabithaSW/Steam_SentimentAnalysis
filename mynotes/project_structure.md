@@ -5,11 +5,11 @@ Project Structure Summary:
 
 - **/app**: Contains the web application's components, including static files, templates, utility scripts, route definitions, and initialization script.
 
-- **/data**: Stores the datasets used for training, testing, and the results of data analysis.
+- **/data**: Stores the datasets used for scraped raw data, preprocessed data for training, testing, and the results of models.
 
-- **/final_analysis**: Contains files related to the final analysis phase of the project, potentially including sentiment analysis results.
+- **/final_analysis**: Contains files related to analyzing the results of the models using visuals and statistics.
 
-- **/models**: Includes scripts for various machine learning models applied to analyze the data.
+- **/models**: Includes scripts for various machine learning models applied to analyze the data. LDA, Kmeans, Hier Cluster.
 
 - **/tests**: Contains scripts for testing the web application's functionality.
 

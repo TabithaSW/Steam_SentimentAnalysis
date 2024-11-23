@@ -288,3 +288,4 @@ sample_text = "This game is great great but 1 1 1 is not cool a a a at all."
 game_names = "example_game"
 processed_text = preprocess_text(sample_text, game_names)
 print(processed_text)
+# RESULT -> this game is great_emphasized but is not_cool at all (This is perfect!)
