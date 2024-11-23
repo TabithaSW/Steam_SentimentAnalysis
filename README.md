@@ -59,6 +59,7 @@ To visually represent the findings, I will create word clouds that highlight the
 
 ***Latent Dirichlet Allocation (LDA) for Topic Modeling***
 - Description: An advanced technique that discovers latent topics within the text data. Each review can contribute to multiple topics to varying degrees.
+- Topic modeling is great for extracting hidden themes, but it doesn’t directly provide sentiment.
 - Application to Steam Reviews: LDA can identify underlying themes or topics across your reviews. For instance, it might reveal common subjects like game difficulty, story depth, or technical issues. This method helps in understanding the predominant topics of discussion in the reviews, although it doesn’t classify sentiment directly.
 
 ***Flask Web Application***
