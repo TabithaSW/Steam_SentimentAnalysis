@@ -7,8 +7,8 @@ The goal of this project is to provide a more nuanced understanding of player se
 
 **A few examples of the Kmeans analysis results:**
 
-| Sentiment Among Best Sellers | | BG3 Sentiment |
-|----------|----------|
+| Sentiment Among Best Sellers | 
+|----------|
 | ![Figure 1](All_Games.png) | 
 
 
