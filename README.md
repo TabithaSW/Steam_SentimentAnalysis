@@ -5,7 +5,7 @@ The goal of this project is to provide a more nuanced understanding of player se
 - If you'd like to contribute just pull request and/or message me via weinbren@msu.edu.
 
 
-**A few examples of the Kmeans analysis results:**
+### A few examples of the Kmeans analysis results:
 
 | Sentiment Among Best Sellers | 
 |----------|
@@ -17,9 +17,7 @@ The goal of this project is to provide a more nuanced understanding of player se
 | ![Figure 2](bg3.png) | 
 
 
-- You would anticipate that a game awarded "Game of the Year," such as Baldur's Gate 3, would exhibit a prevalent distribution of highly positive sentiment scores. 
-
-**BG3:**
+**Baldurs Gate 3 Analysis:**
 - Steams BG3 Score: Overwhelmingly Positive 96% of the 505,051 user reviews for this game are positive.
 - Cluster Analysis: While a significant number of reviews fall in the positive range (Cluster 1 and Cluster 2), some negative sentiment exists (Cluster 0). (Violion/Boxplot)
 - The distribution has a clear positive skew, meaning the game is generally well-received, with a minority expressing dissatisfaction. (Histogram)
