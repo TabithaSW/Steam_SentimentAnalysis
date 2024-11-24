@@ -22,6 +22,7 @@ The goal of this project is to provide a more nuanced understanding of player se
 There’s a noticeable but smaller number of negative reviews, with scores closer to -0.5 or lower. (Bar/Histogram)
 
 | Mean Sentiment Samples By Cluster and Game |
+|----------|
 | ![Figure 3](mean_sentiment_by_cluster_top5.png) |
 
 # Data Collection & Preprocessing
