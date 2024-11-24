@@ -41,3 +41,7 @@ I kindly request that individuals who clone this repository refrain from reprodu
 - Moved the test cluster distribution script to the final analysis folder. Because it can only be run after kmeans is completed.
 - I found that in some of the processed reviews single characters or numbers were appearing or being detected as emphasized. Rewrote the pre process and emphasize function to account for that issue.
 - Changed sil score to print out optimal cluster # at end of run.
+- Added function definitions to kmeans.
+- Updated stopwords for the wordclouds to see most popular words in the reviews of a specific game.
+- Updated the All Games results on the front page for 2024 games!
+

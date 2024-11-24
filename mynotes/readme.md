@@ -6,4 +6,6 @@
 
 3. **Run the TD_IDF script**, this will list the most relevant terms across all reviews, we want to make sure the processed reviews are pulling actual key words before putting data into the models, no junk. Then **run Silhoutte Script to get the best number of clusters based off the processed data.**
 
-4. 
+4. **Run a model, simplest and fastest runtime is Kmeans.** This will provide a result dataset called KMEANS_cluster.csv.
+
+5. For Kmeans, run **avg_sentiment_kmeans_allgames.py** to see a broad overview of your clusters results. There are several other tests included in the final_analysis folder to try out depending on the model used for step 4.

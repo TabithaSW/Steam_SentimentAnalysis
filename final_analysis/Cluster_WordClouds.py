@@ -3,9 +3,9 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
 # Load your dataset
-df = pd.read_csv('data/KMEANS_cluster_TESTres.csv')
+df = pd.read_csv('data/KMEANS_cluster.csv')
 
-# Additional stopwords
+
 # so many stopwords ugh
 additional_stopwords = {
     "actually", "also", "although", "always", "am", "among", "amount", "another", "anyone", "anything",
@@ -33,28 +33,23 @@ additional_stopwords = {
     "td tr", "tldr", "etc", "feature", "right", "little", "match", "main", "item", "getting", "account", "reason",
     "everyone", "everything", "person", "place", "work", "server", "full", "b", "ever", "nan", "current", "sure",
     "step", "content", "story", "enough", "review", "two", "one","td","team","devs","u","list","mod","second","seen","said",
-    "added","mean","felt","make","looking","filtered","ac"
-}
-additional_stopwords.update({
-    "player","need", "stop", "thing", "hour", "year", "month", "overall",
+    "added","mean","felt","make","looking","player","need", "stop", "thing", "hour", "year", "month", "overall",
     "sometimes", "thing", "get", "experience", "feel", "time", "dev", "get", "got", "money", "almost", "job",
     "td tr", "tldr", "etc", "feature", "right", "little", "match", "main", "item", "getting", "account", "reason",
     "everyone", "everything", "person", "place", "work", "server", "full", "b", "ever", "nan", "current", "sure",
     "step", "content", "story", "enough", "review", "two", "one","td","team","devs","u","list","mod","second","seen","said",
     "added","mean","felt","make","looking","map","look","ubisoft","city","steampowered","http","dlc","grow","island","season pass",
     "store","tell","various","outside","coming","case","head","offline","true","guy","girl","sorry","thank","fromsoftware","bethesda",
-    "option","opinion","return","15h","entire","part","create","fully","simulation","mission","drift","previous","before"
-})
-
-additional_stopwords.update({
-    "furthermore", "thus", "nevertheless", "moreover", "nonetheless", "regardless", "consequently", "hence",
+    "option","opinion","return","15h","entire","part","create","fully","simulation","mission","drift","previous","before",
+    "furthermore", "thus", "thing", "nevertheless", "moreover", "nonetheless", "regardless", "consequently", "hence",
     "therefore", "otherwise", "likewise", "similarly", "surprisingly", "ultimately", "meanwhile", "additionally",
     "accordingly", "specifically", "subsequently", "notwithstanding", "altogether", "nevertheless", "moreover",
     "nevertheless", "conversely", "therefore", "furthermore", "otherwise", "additionally", "simultaneously",
     "similarly", "meanwhile", "respectively", "consequently", "accordingly", "likewise", "subsequently",
     "ultimately", "particularly", "notwithstanding", "moreover", "therefore", "consequently", "additionally",
-    "similarly", "consequently", "nevertheless", "therefore", "additionally", "furthermore"
-})
+    "similarly", "consequently", "nevertheless", "therefore", "additionally", "furthermore",
+    "you", "in", "this", "that", "but", "for", "with", "on", "or", "are", "have", "can", "my", "if", "like", "they"}
+
 
 # Group by game and cluster, and apply word cloud generation
 for game_name, game_group in df.groupby('game_name'):
@@ -80,7 +75,7 @@ for game_name, game_group in df.groupby('game_name'):
             cluster_reviews = ' '.join(cluster_df['processed_review'].astype(str))
 
             # Generate word cloud for the current cluster
-            wordcloud = WordCloud(background_color='black', width=800, height=400, colormap="hot",
+            wordcloud = WordCloud(background_color='white', width=800, height=400, colormap="hot",
                                   stopwords=additional_stopwords).generate(cluster_reviews)
 
             # Plot word cloud
