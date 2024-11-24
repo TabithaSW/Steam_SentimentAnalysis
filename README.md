@@ -5,7 +5,7 @@ The goal of this project is to provide a more nuanced understanding of player se
 - If you'd like to contribute just pull request and/or message me via weinbren@msu.edu.
 
 
-### A few examples of the Kmeans analysis results:
+### Preview of K-Means Analysis Results:
 
 | Sentiment Among Best Sellers | 
 |----------|
