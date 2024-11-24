@@ -38,7 +38,7 @@ def analyze_clusters_by_game(df, game_name):
 
 def main():
     # Load your dataset
-    df = pd.read_csv('data/KMEANS_cluster_TESTres.csv')
+    df = pd.read_csv('data/KMEANS_cluster.csv')
 
     # Get unique game names
     unique_games = df['game_name'].unique()

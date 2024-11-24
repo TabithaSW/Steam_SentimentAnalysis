@@ -149,7 +149,7 @@ def main():
     #min_df=3, max_df=0.8
     #  If min_df is set to 5, it means that a word must appear in at least 5 different game reviews to be included in the analysis
     #  If max_df is set to 0.7 (or 70%), it means that any word appearing in more than 70% of the game reviews will be excluded from the analysis
-    num_clusters = 7
+    num_clusters = 3
     
     all_clustered_reviews = []
     unique_games = df[['game_id', 'game_name']].drop_duplicates().values

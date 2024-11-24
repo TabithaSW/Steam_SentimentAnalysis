@@ -12,21 +12,17 @@ The goal of this project is to provide a more nuanced understanding of player se
 | ![Figure 1](All_Games.png) | 
 
 
-| BG3 Sentiment |
+| BG3 Sentiment - 3 Clusters |
 |----------|
 | ![Figure 2](bg3.png) | 
 
 
 **Baldurs Gate 3 Analysis:**
 - Steams BG3 Score: Overwhelmingly Positive 96% of the 505,051 user reviews for this game are positive.
-- Cluster Analysis: While a significant number of reviews fall in the positive range (Cluster 1 and Cluster 2), some negative sentiment exists (Cluster 0). (Violion/Boxplot)
+- Three Clusters Analysis: While a significant number of reviews fall in the positive range (Cluster 1 and Cluster 2), some negative sentiment exists (Cluster 0). (Violion/Boxplot)
 - The distribution has a clear positive skew, meaning the game is generally well-received, with a minority expressing dissatisfaction. (Histogram)
 - Most reviews have positive sentiment scores, clustering around 0.5 to 1.0.
 There’s a noticeable but smaller number of negative reviews, with scores closer to -0.5 or lower. (Bar/Histogram)
-
-| Mean Sentiment Samples By Cluster and Game |
-|----------|
-| ![Figure 3](mean_sentiment_by_cluster_top5.png) |
 
 # Data Collection & Preprocessing
 
