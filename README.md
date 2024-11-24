@@ -11,6 +11,7 @@ The goal of this project is to provide a more nuanced understanding of player se
 |----------|----------|
 | ![Figure 1](All_Games.png) | ![Figure 2](bg3.png) | 
 
+
 - You would anticipate that a game awarded "Game of the Year," such as Baldur's Gate 3, would exhibit a prevalent distribution of highly positive sentiment scores. 
 
 **BG3:**
@@ -20,6 +21,8 @@ The goal of this project is to provide a more nuanced understanding of player se
 - Most reviews have positive sentiment scores, clustering around 0.5 to 1.0.
 There’s a noticeable but smaller number of negative reviews, with scores closer to -0.5 or lower. (Bar/Histogram)
 
+| Mean Sentiment Samples By Cluster and Game |
+| ![Figure 3](mean_sentiment_by_cluster_top5.png) |
 
 # Data Collection & Preprocessing
 
