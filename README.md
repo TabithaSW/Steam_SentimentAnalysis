@@ -57,7 +57,7 @@ In my project, I employ unsupervised learning models to cluster the reviews, aim
 - **Histogram with KDE**: Represents frequency and density of sentiment scores across all clusters.
 - **Bar Chart**: Summarizes the count of sentiment scores per cluster.
 - **Horizontal Bar Chart**: Highlights the average sentiment score for a range of video games, ordered from least to most positive sentiment.
-- 
+
 ### How to Use
 - Each visualization is designed to help identify patterns in sentiment data, facilitating actionable insights for game developers or community analysts.
 - Use these charts to compare sentiment distributions, detect trends, and identify outliers or significant group differences.
