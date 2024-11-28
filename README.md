@@ -54,11 +54,16 @@ In my project, I employ unsupervised learning models to cluster the reviews, aim
 - Application to Steam Reviews: This method allows you to see not just which reviews are similar, but also how they relate to each other in a multi-level hierarchy. It can reveal nuanced relationships between different reviews, such as grouping together all reviews that discuss a specific game feature, then further subdividing them based on sentiment or specific aspects of that feature.
 
 # Analysis & Visualization
-- Sentiment distribution across clusters using box and whisker plots and a violin plot. How varied are the clusters, are they accurate in determining the true view of the game?
-- An average sentiment score per game, bar graph form. The K-means clustering model assigns sentiment scores to each review, and then, by aggregating these scores for each game and calculating the average, you obtain a single sentiment score representative of the overall sentiment for that game. This approach allows you to summarize the sentiment of each game based on the sentiments expressed in its reviews.
-- Distribution of the sentiment scores, how frequently do these scores occur for each game? Can we ensure the reviews vary in their sentiment (determined by the positive/negative words in the review), as they should! There should be a decent amount of varience across the scores, and less varied for games that players LOVED vs HATED!
-
-
+- **Boxplot**: Displays the distribution and central tendency of sentiment scores by clusters.
+- **Violin Plot**: Combines density and distribution visualization for deeper insights into sentiment variations.
+- **Histogram with KDE**: Represents frequency and density of sentiment scores across all clusters.
+- **Bar Chart**: Summarizes the count of sentiment scores per cluster.
+- **Horizontal Bar Chart**: Highlights the average sentiment score for a range of video games, ordered from least to most positive sentiment.
+- 
+### How to Use
+- Each visualization is designed to help identify patterns in sentiment data, facilitating actionable insights for game developers or community analysts.
+- Use these charts to compare sentiment distributions, detect trends, and identify outliers or significant group differences.
+- 
 # In Progress:
 
 - For all changes, additions, and updates - check the mynotes folder and the log to see what EXACTLY was changed, when, and why!
