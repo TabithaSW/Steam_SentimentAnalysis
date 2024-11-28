@@ -36,8 +36,6 @@ Added in advanced tokenizing so the processing handles word Emphasis Detection, 
 
 In my project, I employ unsupervised learning models to cluster the reviews, aiming to uncover common themes and sentiments expressed by gamers. I've chosen a mix of models to address different aspects of the analysis: K-Means clustering serves as the foundation for general grouping of reviews, Hierarchical clustering is used to delve into the nuanced relationships between different sentiments, and LDA (Latent Dirichlet Allocation) is utilized for sophisticated topic modeling. This multifaceted approach allows me to capture a wide array of insights from the review data.
 
-# Current Models:
-
 ## K-Means Clustering
 - Description: A method that groups reviews into a specified number of clusters based on the similarity of their content. Clustering all reviews for each game into a few clusters (e.g., positive, negative, neutral), the algorithm aims to capture the overall sentiment expressed by players toward each game.
 - The kmeans script is creating clusters for every game in the CSV, not for every review (overall clusters) It then performs clustering on the reviews for each game, so each cluster contains reviews that are related to that specific game. This approach allows for analyzing and understanding sentiment patterns within the reviews of individual games, rather than across all reviews indiscriminately.
@@ -63,7 +61,7 @@ In my project, I employ unsupervised learning models to cluster the reviews, aim
 ### How to Use
 - Each visualization is designed to help identify patterns in sentiment data, facilitating actionable insights for game developers or community analysts.
 - Use these charts to compare sentiment distributions, detect trends, and identify outliers or significant group differences.
-- 
+
 # In Progress:
 
 - For all changes, additions, and updates - check the mynotes folder and the log to see what EXACTLY was changed, when, and why!
