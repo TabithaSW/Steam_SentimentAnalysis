@@ -4,7 +4,7 @@ The Steam Sentiment Analysis project is a tool designed to analyze user reviews 
 The goal of this project is to provide a more nuanced understanding of player sentiment, going beyond the simplistic positive/negative classification used by Steam. By analyzing the content of each review, it offers insights into what players truly think about a game. This approach allows for a more comprehensive assessment of user sentiment, enhancing the accuracy of evaluations compared to Steam's current algorithm.
 - There is a guide on how to run this project provided - Steam_SentimentAnalysis/mynotes
 /howtorun.md
-- If you'd like to contribute just pull request and/or message me via weinbren@msu.edu.
+- If you'd like to contribute just pull request and/or message me via tabithaweinbrenner@gmail.com
 
 
 ### Preview of K-Means Analysis Results:
