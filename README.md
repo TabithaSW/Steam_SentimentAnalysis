@@ -16,8 +16,7 @@ The goal of this project is to provide a more nuanced understanding of player se
 
 | BG3 Sentiment - 3 Clusters |
 |----------|
-| ![Figure 2](bg3.png) | 
-
+Requires updated cluster PNG.
 
 **Baldurs Gate 3 Analysis:**
 - Steams BG3 Score: Overwhelmingly Positive 96% of the 505,051 user reviews for this game are positive.
